@@ -7,5 +7,6 @@ This is a VR project created for a VR class :3
 
 Asset name (folder) - description
 
+- [XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html) (Samples/XR Interaction Toolkit) - base toolkit for developing XR apps for Meta Quest in Unity
 - [Cutlery Silverware PBR](https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932) (devotid) - Sample cutlery used to test stuff
 - [Mesh Cutting](https://github.com/hugoscurti/mesh-cutter) (Scripts/MeshCutting) - Algorithms used to perform mesh cutting
