@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,12 +25,17 @@ public class GameMaster : MonoBehaviour
     private StateItem[] stateList;
 
     [SerializeField]
+    [Tooltip("The file name of the state file in the Assets/Resources folder.")]
+    private string stateFile;
+
+
+    [SerializeField]
     private GameObject textBox;
 
     public void Start()
     {
         // Read text from files
-        TextAsset data = Resources.Load("test-states") as TextAsset;
+        TextAsset data = Resources.Load(stateFile) as TextAsset;
         string[] lines = data.text.Split('\n').Where(c => !c.Trim().StartsWith("#") && c.Trim() != "").ToArray();
 
         // Parse all items

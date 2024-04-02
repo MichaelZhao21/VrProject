@@ -7865,6 +7865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1816013559}
+  stateFile: test-states
 --- !u!114 &1653407669
 MonoBehaviour:
   m_ObjectHideFlags: 0
