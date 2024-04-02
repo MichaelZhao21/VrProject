@@ -1,0 +1,84 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class GameMaster : MonoBehaviour
+{
+    public class StateItem
+    {
+        public string name;
+        public string value;
+        public StateItem(string name, string value)
+        {
+            this.name = name;
+            this.value = value;
+        }
+    }
+
+    // Track the current state
+    private int state = -1;
+
+    private StateItem[] stateList;
+
+    [SerializeField]
+    private GameObject textBox;
+
+    public void Start()
+    {
+        // Read text from files
+        TextAsset data = Resources.Load("test-states") as TextAsset;
+        string[] lines = data.text.Split('\n').Where(c => !c.Trim().StartsWith("#") && c.Trim() != "").ToArray();
+
+        // Parse all items
+        stateList = new StateItem[lines.Length];
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] parts = lines[i].Split(' ');
+
+            if (parts.Length >= 2) {
+                stateList[i] = new StateItem(parts[0], parts[1]);
+            } else {
+                stateList[i] = new StateItem(parts[0], "");
+            }
+        }
+
+        UpdateUI();
+    }
+
+    public void ChangeState(string stateName, string value = "")
+    {
+        Debug.Log(stateName + " " + value + " " + state + " " + stateList.Length);
+        // End of state
+        if (state == stateList.Length - 1)
+        {
+            return;
+        }
+
+        // Not valid state
+        if (stateName != stateList[state + 1].name || (value != "" && value != stateList[state + 1].value))
+        {
+            return;
+        }
+
+        // If all conditions pass, increment state
+        state++;
+
+        UpdateUI();
+    }
+
+    public void UpdateUI() {
+        // Show debug message if needed
+        if (textBox != null)
+        {
+            string currentState = state == -1 ? "Start" : stateList[state].name;
+            string nextState = state == stateList.Length - 1 ? "End" : stateList[state + 1].name;
+            string currentValue = state == -1 ? "" : stateList[state].value == "" ? "" : String.Format(" [{0}]", stateList[state].value);
+            string nextValue = state == stateList.Length - 1 ? "" : stateList[state + 1].value == "" ? "" : String.Format(" [{0}]", stateList[state + 1].value);
+            string stateMsg = String.Format("Current State: {0}{1}\nNext State: {2}{3}", currentState, currentValue, nextState, nextValue);
+            textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
+        }
+    }
+}

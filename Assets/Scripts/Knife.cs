@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EzySlice;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Transformers;
@@ -13,6 +14,9 @@ public class Knife : MonoBehaviour
     List<GameObject> hoveredObjects = new();
     public float separation = 0.1f;
 
+    [SerializeField]
+    private UnityEvent<string> onSlice;
+
     // This function actually slices stuff
     // Parts adapted from https://github.com/hugoscurti/mesh-cutter/blob/master/Assets/Scripts/MouseSlice.cs
     void OnCollisionEnter(Collision collision)
@@ -23,6 +27,8 @@ public class Knife : MonoBehaviour
         }
 
         slicing = true;
+
+        onSlice.Invoke(collision.gameObject.name);
 
         StartCoroutine(SliceObject(collision));
     }

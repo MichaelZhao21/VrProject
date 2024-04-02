@@ -1,0 +1,4 @@
+generate_cubes
+grab_fork
+open_fridge
+cut_ingredient tomato
