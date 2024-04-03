@@ -13,6 +13,12 @@ Asset name (folder in Assets) - description
 - [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488) (QuickOutline) - Used for outlining objects
 - [EzySlice](https://github.com/DavidArayan/ezy-slice) (EzySlice) - Used to slice meshes using a plane
 
+# Blender Overview
+
+All files from blender are stored in `Assets/CustomShapes`. This folder has 2 subdirectories: `blender` and `textures`. The `blender` folder is where all `.blend` files should be placed. The `textures` folder is where exported textures are placed (see below). All models imported into Unity should be in the main `CustomShapes` folder, in the FBX format.
+
+- Export textures from Blender to Unity: https://www.youtube.com/watch?v=yloupOUjMOA
+
 # Interactions Overview
 
 ## Character
