@@ -28,10 +28,13 @@ public class GameMaster : MonoBehaviour
     [Tooltip("The file name of the state file in the Assets/Resources folder.")]
     private string stateFile;
 
-    public static Dictionary<string, float> scores = new();
-
     [SerializeField]
     private GameObject textBox;
+
+    // static variables
+    public static Dictionary<string, float> scores = new();
+    
+    public static GameObject finalPlating;
 
     public void Start()
     {
