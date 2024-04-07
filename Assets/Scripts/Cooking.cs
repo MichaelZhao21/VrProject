@@ -42,9 +42,9 @@ public class Cooking : MonoBehaviour
                 foreach (GameObject food in touchingFood)
                 {
                     // If the object is not already cooking, start cooking it
-                    if (food.GetComponent<Ingredients>().isCooking)
+                    if (food.GetComponent<Ingredient>().isCooking)
                     {
-                        food.GetComponent<Ingredients>().isCooking = false;
+                        food.GetComponent<Ingredient>().isCooking = false;
                     }
                 }
             
@@ -58,23 +58,23 @@ public class Cooking : MonoBehaviour
         foreach (GameObject food in touchingFood)
         {
             // If the object is not already cooking, start cooking it
-            if (food.GetComponent<Ingredients>().CookingPercentage < 120)
+            if (food.GetComponent<Ingredient>().CookingPercentage < 120)
             {
-                food.GetComponent<Ingredients>().isCooking = true;
+                food.GetComponent<Ingredient>().isCooking = true;
                 yield return new WaitForSeconds(2);
-                food.GetComponent<Ingredients>().CookingPercentage += 10;
-                if (food.GetComponent<Ingredients>().CookingPercentage == 100)
+                food.GetComponent<Ingredient>().CookingPercentage += 10;
+                if (food.GetComponent<Ingredient>().CookingPercentage == 100)
                 {
                     food.GetComponent<Renderer>().material.color = Color.black;
-                    food.GetComponent<Ingredients>().isCooked = true;
+                    food.GetComponent<Ingredient>().isCooked = true;
                     gameObject.GetComponent<AudioSource>().Play();
 
                 }
-                if (food.GetComponent<Ingredients>().CookingPercentage >= 120)
+                if (food.GetComponent<Ingredient>().CookingPercentage >= 120)
                 {
                     food.GetComponent<Renderer>().material.color = Color.red;
                     gameObject.GetComponent<AudioSource>().Play();
-                    food.GetComponent<Ingredients>().isCooking = false;
+                    food.GetComponent<Ingredient>().isCooking = false;
                 }
             }
         }
