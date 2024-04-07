@@ -8,6 +8,7 @@ public class Cooking : MonoBehaviour
     // List of food objects that are touching the object
     private List<GameObject> touchingFood = new List<GameObject>();
     
+    bool coRoutine = false;
     void Update()
     {
 
@@ -32,22 +33,54 @@ public class Cooking : MonoBehaviour
                 // Check if the color of the object is red
                 if (collider.GetComponent<Renderer>().material.color == Color.red)
                 {
-                    // Start a 5 second timer for cooking
-                    StartCoroutine(cookFood());
+                    if (!coRoutine)
+                    {
+                        StartCoroutine(cookFood());
+                    }
                 }
+            }else{
+                foreach (GameObject food in touchingFood)
+                {
+                    // If the object is not already cooking, start cooking it
+                    if (food.GetComponent<Ingredients>().isCooking)
+                    {
+                        food.GetComponent<Ingredients>().isCooking = false;
+                    }
+                }
+            
             }
         }
     }
 
     IEnumerator cookFood()
     {
-        // Wait for 5 seconds
-        yield return new WaitForSeconds(5);
-        // Change the color of the object to black
+        coRoutine = true;
         foreach (GameObject food in touchingFood)
         {
-            food.GetComponent<Renderer>().material.color = Color.black;
+            // If the object is not already cooking, start cooking it
+            if (food.GetComponent<Ingredients>().CookingPercentage < 120)
+            {
+                food.GetComponent<Ingredients>().isCooking = true;
+                yield return new WaitForSeconds(2);
+                food.GetComponent<Ingredients>().CookingPercentage += 10;
+                if (food.GetComponent<Ingredients>().CookingPercentage == 100)
+                {
+                    food.GetComponent<Renderer>().material.color = Color.black;
+                    food.GetComponent<Ingredients>().isCooked = true;
+                    gameObject.GetComponent<AudioSource>().Play();
+
+                }
+                if (food.GetComponent<Ingredients>().CookingPercentage >= 120)
+                {
+                    food.GetComponent<Renderer>().material.color = Color.red;
+                    gameObject.GetComponent<AudioSource>().Play();
+                    food.GetComponent<Ingredients>().isCooking = false;
+                }
+            }
         }
+        coRoutine = false;
     }
+
+
 
 }

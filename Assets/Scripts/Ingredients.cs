@@ -2,19 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreeObject : MonoBehaviour
+public class Ingredients : MonoBehaviour
 {
+    public float CookingPercentage = 0;
+    public bool isCooked = false;
+    public bool isCooking = false;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void freeMe()
     {
@@ -24,4 +17,6 @@ public class FreeObject : MonoBehaviour
             Destroy(GetComponent<FixedJoint>());
         }
     }
+
+    
 }
