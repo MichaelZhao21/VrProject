@@ -39,7 +39,7 @@ public class SubmitDish : MonoBehaviour
         }
 
         // Calculate plating score by getting the average position of objects on the plate
-        // Score: 1 - max{(avg distance to center)/(radius of plate), 1} + 0.1
+        // Score: 1 - min{(avg distance to center)/(radius of plate), 1} + 0.1
         // This gives min plating 10%
         float totalDist = 0f;
         foreach (GameObject g in inBox)
@@ -52,8 +52,7 @@ public class SubmitDish : MonoBehaviour
         }
         float plateRadius = plate.GetNamedChild("plate").GetComponent<MeshRenderer>().bounds.size.x / 2;
         float avgDist = totalDist / (inBox.Count - 1);
-        Debug.Log(avgDist + " " + plateRadius);
-        GameMaster.scores["plating"] = 1 - Math.Max(avgDist / plateRadius, 1) + 0.10f;
+        GameMaster.scores["plating"] = 1 - Math.Min(avgDist / plateRadius, 1) + 0.10f;
 
         // Save the plate to the GameMaster reference
         GameObject submit = new("submitted food");
