@@ -222,11 +222,11 @@ HingeJoint:
     force: 0
     freeSpin: 0
   m_UseLimits: 1
-  m_ExtendedLimits: 1
+  m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: 91.549
-    max: 188.12671
+    min: 0
+    max: 90
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -435,8 +435,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.019999996, y: 0.005, z: 0.4}
-  m_Center: {x: 0, y: -0.0075059645, z: -0.19000003}
+  m_Size: {x: 0.013180352, y: 0.005, z: 0.4}
+  m_Center: {x: -0.003409825, y: -0.007505966, z: -0.19000003}
 --- !u!65 &3996400712185002340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -456,8 +456,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.019999996, y: 0.005, z: 0.4}
-  m_Center: {x: 0, y: 0.00751858, z: -0.19005552}
+  m_Size: {x: 0.013197104, y: 0.005, z: 0.4}
+  m_Center: {x: -0.0034014478, y: 0.0075185797, z: -0.19005552}
 --- !u!65 &9013903165344292447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -498,8 +498,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.004129299, y: 0.020000003, z: 0.4}
-  m_Center: {x: 0.007935332, y: 1.8318662e-17, z: -0.19000003}
+  m_Size: {x: 0.0031395608, y: 0.020000007, z: 0.4}
+  m_Center: {x: 0.0016129765, y: -5.200935e-10, z: -0.19000003}
 --- !u!65 &2803717354281821888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -519,8 +519,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.019999996, y: 0.020000003, z: 0.32748315}
-  m_Center: {x: 0, y: 8.254806e-18, z: -0.22625889}
+  m_Size: {x: 0.012265205, y: 0.020000007, z: 0.32748315}
+  m_Center: {x: -0.0038673992, y: -7.7135487e-10, z: -0.2262589}
 --- !u!1 &4676852505817602807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3137949818321323681, guid: f8e78baff4c6988d092ae0fb70a8aa4f, type: 3}
@@ -662,7 +662,7 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: 0, z: 1}
+  m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
@@ -680,8 +680,8 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -7.8501797
-    max: 90.535706
+    min: 0
+    max: 90
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PermittedDisplacementAxes: 7
+  m_PermittedDisplacementAxes: -1
   m_ConstrainedAxisDisplacementMode: 1
   m_TwoHandedRotationMode: 1
   m_AllowOneHandedScaling: 1

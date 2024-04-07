@@ -12,6 +12,7 @@ Asset name (folder in Assets) - description
 - [Cutlery Silverware PBR](https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932) (devotid) - Sample cutlery used to test stuff
 - [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488) (QuickOutline) - Used for outlining objects
 - [EzySlice](https://github.com/DavidArayan/ezy-slice) (EzySlice) - Used to slice meshes using a plane
+- [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
 
 # Blender Overview
 

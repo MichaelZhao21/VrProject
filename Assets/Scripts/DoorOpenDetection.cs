@@ -8,6 +8,11 @@ public class DoorOpenDetection : MonoBehaviour
     private float originalRotation = 0;
     private bool open = false;
 
+    public void Start()
+    {
+        originalRotation = transform.rotation.y;
+    }
+
     public void Update()
     {
         if (IsOpen())
