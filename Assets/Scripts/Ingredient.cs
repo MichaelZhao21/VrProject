@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public Boolean grabbed;
+    public bool grabbed;
+
+    public float CookingPercentage = 0;
+    public bool isCooked = false;
+    public bool isCooking = false;
 
     public void Grab() {
         // Ignore if no fixed joint

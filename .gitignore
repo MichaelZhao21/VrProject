@@ -74,3 +74,4 @@ crashlytics-build.properties
 # Random Blender Temp Files
 *.blend1
 *.blend1.meta
+**/*/.DS_Store
