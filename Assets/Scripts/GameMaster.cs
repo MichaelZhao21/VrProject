@@ -92,7 +92,7 @@ public class GameMaster : MonoBehaviour
             string nextState = state == stateList.Length - 1 ? "End" : stateList[state + 1].name;
             string currentValue = state == -1 ? "" : stateList[state].value == "" ? "" : String.Format(" [{0}]", stateList[state].value);
             string nextValue = state == stateList.Length - 1 ? "" : stateList[state + 1].value == "" ? "" : String.Format(" [{0}]", stateList[state + 1].value);
-            string stateMsg = string.Format("Next Task: {2}{3} (previous: {0}{1})", currentState, currentValue, nextState, nextValue);
+            string stateMsg = string.Format("Next Task: {2}{3}\n\n(previous: {0}{1})", currentState, currentValue, nextState, nextValue);
             textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
         }
     }
