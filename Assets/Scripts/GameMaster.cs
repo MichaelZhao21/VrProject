@@ -28,6 +28,7 @@ public class GameMaster : MonoBehaviour
     [Tooltip("The file name of the state file in the Assets/Resources folder.")]
     private string stateFile;
 
+    public static Dictionary<string, float> scores = new();
 
     [SerializeField]
     private GameObject textBox;
@@ -36,6 +37,11 @@ public class GameMaster : MonoBehaviour
     {
         // Read text from files
         TextAsset data = Resources.Load(stateFile) as TextAsset;
+        if (data == null) {
+            Debug.LogError("Invalid name for stateFile (does not exist): " + stateFile);
+            return;
+        }
+
         string[] lines = data.text.Split('\n').Where(c => !c.Trim().StartsWith("#") && c.Trim() != "").ToArray();
 
         // Parse all items
@@ -86,5 +92,15 @@ public class GameMaster : MonoBehaviour
             string stateMsg = String.Format("Current State: {0}{1}\nNext State: {2}{3}", currentState, currentValue, nextState, nextValue);
             textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
         }
+    }
+
+    public static float CalculateAverageScore() {
+        // Calculate score for dish and show final menu
+        float totalScore = 0f;
+        foreach(float v in scores.Values) {
+            totalScore += v;
+        }
+        float avgScore = totalScore / scores.Count;
+        return avgScore;
     }
 }
