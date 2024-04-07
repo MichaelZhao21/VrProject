@@ -28,14 +28,23 @@ public class GameMaster : MonoBehaviour
     [Tooltip("The file name of the state file in the Assets/Resources folder.")]
     private string stateFile;
 
-
     [SerializeField]
     private GameObject textBox;
+
+    // static variables
+    public static Dictionary<string, float> scores = new();
+    
+    public static GameObject finalPlating;
 
     public void Start()
     {
         // Read text from files
         TextAsset data = Resources.Load(stateFile) as TextAsset;
+        if (data == null) {
+            Debug.LogError("Invalid name for stateFile (does not exist): " + stateFile);
+            return;
+        }
+
         string[] lines = data.text.Split('\n').Where(c => !c.Trim().StartsWith("#") && c.Trim() != "").ToArray();
 
         // Parse all items
@@ -83,8 +92,18 @@ public class GameMaster : MonoBehaviour
             string nextState = state == stateList.Length - 1 ? "End" : stateList[state + 1].name;
             string currentValue = state == -1 ? "" : stateList[state].value == "" ? "" : String.Format(" [{0}]", stateList[state].value);
             string nextValue = state == stateList.Length - 1 ? "" : stateList[state + 1].value == "" ? "" : String.Format(" [{0}]", stateList[state + 1].value);
-            string stateMsg = String.Format("Current State: {0}{1}\nNext State: {2}{3}", currentState, currentValue, nextState, nextValue);
+            string stateMsg = string.Format("Next Task: {2}{3} (previous: {0}{1})", currentState, currentValue, nextState, nextValue);
             textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
         }
+    }
+
+    public static float CalculateAverageScore() {
+        // Calculate score for dish and show final menu
+        float totalScore = 0f;
+        foreach(float v in scores.Values) {
+            totalScore += v;
+        }
+        float avgScore = totalScore / scores.Count;
+        return avgScore;
     }
 }
