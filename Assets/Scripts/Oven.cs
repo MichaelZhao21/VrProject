@@ -13,16 +13,16 @@ public class Oven : MonoBehaviour
     private List<GameObject> insideOven = new List<GameObject>();
     
     void Start(){
-        defaultColor = gameObject.GetComponent<Renderer>().materials[1].color;
+        defaultColor = gameObject.GetComponent<MeshRenderer>().materials[1].color;
     }
     void OvenOn(){
         // Change color of oven to red
-        gameObject.GetComponent<Renderer>().materials[1].color = Color.yellow;
+        gameObject.GetComponent<MeshRenderer>().materials[1].color = Color.yellow;
     }
 
     void OvenOff(){
         // Change color of oven to black
-        gameObject.GetComponent<Renderer>().materials[1].color = defaultColor;
+        gameObject.GetComponent<MeshRenderer>().materials[1].color = defaultColor;
     }
 
     // Update is called once per frame
@@ -54,12 +54,17 @@ public class Oven : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other){
-        insideOven.Add(other.gameObject);
+        if (other.gameObject.tag == "ingredient"){
+            insideOven.Add(other.gameObject);
+        }
     }
 
     public void OnTriggerExit(Collider other){
-        other.gameObject.GetComponent<Ingredient>().isCooking = false;
-        insideOven.Remove(other.gameObject);
+        if (other.gameObject.tag == "ingredient"){
+            other.gameObject.GetComponent<Ingredient>().isCooking = false;
+            insideOven.Remove(other.gameObject);
+        }
+        
     }
 
 
