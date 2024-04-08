@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ingredient
   - plane
+  - burner
+  - plate
   layers:
   - Default
   - TransparentFX

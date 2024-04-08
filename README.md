@@ -1,3 +1,5 @@
+![Kitchen Konquest VR Logo](Assets/CustomShapes/textures/splash-trans.png)
+
 # VR Project!
 This is using Unity version 2022.3.17f1
 
@@ -12,6 +14,13 @@ Asset name (folder in Assets) - description
 - [Cutlery Silverware PBR](https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932) (devotid) - Sample cutlery used to test stuff
 - [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488) (QuickOutline) - Used for outlining objects
 - [EzySlice](https://github.com/DavidArayan/ezy-slice) (EzySlice) - Used to slice meshes using a plane
+- [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
+
+# Blender Overview
+
+All files from blender are stored in `Assets/CustomShapes`. This folder has 2 subdirectories: `blender` and `textures`. The `blender` folder is where all `.blend` files should be placed. The `textures` folder is where exported textures are placed (see below). All models imported into Unity should be in the main `CustomShapes` folder, in the FBX format.
+
+- Export textures from Blender to Unity: https://www.youtube.com/watch?v=yloupOUjMOA
 
 # Interactions Overview
 
