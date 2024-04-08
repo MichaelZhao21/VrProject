@@ -7,7 +7,10 @@ public class Ingredient : MonoBehaviour
 {
     public bool grabbed = false;
     
-    public float minVolume = 0.5f;
+    public float minVolume = 0f;
+    
+    [Tooltip("Expected number of pieces this ingredient should be cut in; score is max{1, pieces/expectedPieces}")]
+    public int expectedPieces = 5;
 
     public float CookingPercentage = 0;
     public bool isCooked = false;
@@ -17,11 +20,12 @@ public class Ingredient : MonoBehaviour
     public Material innerMaterial;
 
     public void Grab() {
-        // Ignore if no fixed joint
-        if (!gameObject.TryGetComponent<FixedJoint>(out var joint)) return;
-
-        Destroy(joint);
+        gameObject.GetComponent<StateChange>().Change("");
         grabbed = true;
+
+        // Don't do if no joint
+        if (!gameObject.TryGetComponent<FixedJoint>(out var joint)) return;
+        Destroy(joint);
     }
     
     public void Ungrab() {

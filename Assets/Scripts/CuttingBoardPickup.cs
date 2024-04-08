@@ -65,7 +65,6 @@ public class CuttingBoardPickup : MonoBehaviour
         RemoveNulls();
         foreach (var g in onBoard)
         {
-            if (!g.CompareTag("ingredient")) continue;
             if (!g.TryGetComponent<FixedJoint>(out var joint)) continue;
             Destroy(joint);
         }
@@ -77,7 +76,6 @@ public class CuttingBoardPickup : MonoBehaviour
         RemoveNulls();
         foreach (var g in onBoard)
         {
-            if (!g.CompareTag("ingredient")) continue;
             FixedJoint joint = g.AddComponent<FixedJoint>();
             joint.connectedBody = gameObject.GetComponent<Rigidbody>();
         }
@@ -97,11 +95,13 @@ public class CuttingBoardPickup : MonoBehaviour
 
     public void OnTriggerEnter(Collider c)
     {
+        if (!c.gameObject.CompareTag("ingredient")) return;
         onBoard.Add(c.gameObject);
     }
 
     public void OnTriggerExit(Collider c)
     {
+        if (!c.gameObject.CompareTag("ingredient")) return;
         onBoard.Remove(c.gameObject);
     }
 }
