@@ -38,9 +38,10 @@ public class Knife : MonoBehaviour
     {
         ContactPoint contact = collision.GetContact(0);
 
-        // Calculate the normal of plane to slice
-        Debug.DrawRay(contact.point, transform.forward, Color.red, 10.0f);
+        // Used for debugging!
+        // Debug.DrawRay(contact.point, transform.forward, Color.red, 10.0f);
 
+        // Calculate the normal of plane to slice
         GameObject pl = DrawPlane(transform.forward, contact.point);
 
         // Slice the object
@@ -59,10 +60,27 @@ public class Knife : MonoBehaviour
             slicing = false;
             yield return new WaitForEndOfFrame();
         }
+        else if (GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minVolume ||
+            GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minVolume)
+        {
+            Debug.Log("COULDN'T CUT: " + GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size));
+            Destroy(objs[0]);
+            Destroy(objs[1]);
+            slicing = false;
+            yield return new WaitForEndOfFrame();
+        }
         else
         {
+            Debug.Log("CUT: " + GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size));
             // So new objects dont hit it lol
             collision.gameObject.GetComponent<MeshCollider>().enabled = false;
+
+            // Figure out name of new game objects
+            string name = collision.gameObject.name;
+            if (!name.EndsWith("-cut"))
+            {
+                name += "-cut";
+            }
 
             // Place objects back where they should go
             GameObject upperHull = objs[0];
@@ -74,6 +92,9 @@ public class Knife : MonoBehaviour
             // Loop through objs
             foreach (GameObject obj in objs)
             {
+                // Add name
+                obj.name = name;
+
                 // Add meshcollider
                 obj.AddComponent<MeshCollider>();
                 obj.GetComponent<MeshCollider>().convex = true;
@@ -104,6 +125,7 @@ public class Knife : MonoBehaviour
                 var ing = obj.AddComponent<Ingredient>();
                 var currIng = collision.gameObject.GetComponent<Ingredient>();
                 ing.grabbed = currIng.grabbed;
+                ing.minVolume = currIng.minVolume;
                 ing.CookingPercentage = currIng.CookingPercentage;
                 ing.isCooked = currIng.isCooked;
                 ing.isCooking = currIng.isCooking;
@@ -183,8 +205,14 @@ public class Knife : MonoBehaviour
         plane.transform.localRotation = rotate;
         plane.transform.position = point;
         plane.tag = "plane";
+        plane.name = "Cut Plane";
         plane.GetComponent<MeshCollider>().enabled = false;
-        plane.SetActive(false);
+        plane.GetComponent<MeshRenderer>().enabled = false;
         return plane;
+    }
+
+    private float GetVolume(Vector3 size)
+    {
+        return size.x * size.y * size.z;
     }
 }

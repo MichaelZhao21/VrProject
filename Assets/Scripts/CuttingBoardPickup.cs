@@ -62,6 +62,7 @@ public class CuttingBoardPickup : MonoBehaviour
 
     private void Unfix()
     {
+        RemoveNulls();
         foreach (var g in onBoard)
         {
             if (!g.CompareTag("ingredient")) continue;
@@ -73,9 +74,9 @@ public class CuttingBoardPickup : MonoBehaviour
 
     private void Affix()
     {
+        RemoveNulls();
         foreach (var g in onBoard)
         {
-            Debug.Log(g.name);
             if (!g.CompareTag("ingredient")) continue;
             FixedJoint joint = g.AddComponent<FixedJoint>();
             joint.connectedBody = gameObject.GetComponent<Rigidbody>();
@@ -87,6 +88,11 @@ public class CuttingBoardPickup : MonoBehaviour
     {
         return Math.Abs(initialRotationX - transform.rotation.eulerAngles.x) > 60 ||
             Math.Abs(initialRotationZ - transform.rotation.eulerAngles.z) > 60;
+    }
+
+    private void RemoveNulls()
+    {
+        onBoard.RemoveWhere(g => g == null);
     }
 
     public void OnTriggerEnter(Collider c)
