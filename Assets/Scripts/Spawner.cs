@@ -4,30 +4,50 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Get spawner game object
-    GameObject spawnerLocation;
-
     // Get the thing to spawn
-    public GameObject thingToSpawn;
+    [SerializeField]
+    [Tooltip("GameObject to spawn if not present in collider area; note this will use the NAME of the object to determine type")]
+    private GameObject thingToSpawn;
+
+    private GameObject objRef;
+
+    private readonly HashSet<GameObject> inCollider = new();
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get spawner game object
-        spawnerLocation = this.gameObject;
+        objRef = Instantiate(thingToSpawn, thingToSpawn.transform.position, thingToSpawn.transform.rotation);
+        objRef.name = thingToSpawn.name;
+        objRef.SetActive(false);
+    }
+
+    void Update()
+    {
+        foreach (GameObject g in inCollider) {
+            if (g.name == objRef.name) {
+                return;
+            }
+        }
+        Spawn();
     }
 
     public void Spawn()
     {
         // Duplicate thing to spawn
-        GameObject newThing = Instantiate(thingToSpawn, spawnerLocation.transform.position, spawnerLocation.transform.rotation);
-
-        // Set the parent of the new thing to the spawner
-        newThing.transform.parent = spawnerLocation.transform;
+        GameObject newThing = Instantiate(objRef, objRef.transform.position, objRef.transform.rotation);
+        newThing.name = objRef.name;
 
         // Set the new thing to active
         newThing.SetActive(true);
     }
 
+    public void OnTriggerEnter(Collider c)
+    {
+        inCollider.Add(c.gameObject);
+    }
 
+    public void OnTriggerExit(Collider c)
+    {
+        inCollider.Remove(c.gameObject);
+    }
 }
