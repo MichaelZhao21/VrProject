@@ -584,6 +584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e3a9a190699dc248bc3c772c78241e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplay: {fileID: 1793222383}
+  gameMaster: {fileID: 975955223}
 --- !u!65 &619214815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1610,7 +1612,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
       propertyPath: m_Name
-      value: Banana
+      value: banana
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
       propertyPath: m_TagString

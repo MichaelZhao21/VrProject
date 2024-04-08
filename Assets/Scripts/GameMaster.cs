@@ -33,14 +33,15 @@ public class GameMaster : MonoBehaviour
 
     // static variables
     public static Dictionary<string, float> scores = new();
-    
+
     public static GameObject finalPlating;
 
     public void Start()
     {
         // Read text from files
         TextAsset data = Resources.Load(stateFile) as TextAsset;
-        if (data == null) {
+        if (data == null)
+        {
             Debug.LogError("Invalid name for stateFile (does not exist): " + stateFile);
             return;
         }
@@ -51,11 +52,14 @@ public class GameMaster : MonoBehaviour
         stateList = new StateItem[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
-            string[] parts = lines[i].Split(' ');
+            string[] parts = lines[i].Trim().Split(' ');
 
-            if (parts.Length >= 2) {
+            if (parts.Length >= 2)
+            {
                 stateList[i] = new StateItem(parts[0], parts[1]);
-            } else {
+            }
+            else
+            {
                 stateList[i] = new StateItem(parts[0], "");
             }
         }
@@ -67,7 +71,7 @@ public class GameMaster : MonoBehaviour
     {
         Debug.Log(stateName + " " + value + " " + state + " " + stateList.Length);
         // End of state
-        if (state == stateList.Length - 1)
+        if (IsGameOver())
         {
             return;
         }
@@ -84,7 +88,8 @@ public class GameMaster : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdateUI() {
+    public void UpdateUI()
+    {
         // Show debug message if needed
         if (textBox != null)
         {
@@ -97,13 +102,22 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    public static float CalculateAverageScore() {
+    public static float CalculateAverageScore()
+    {
+        if (scores.Count == 0) return 0;
+
         // Calculate score for dish and show final menu
         float totalScore = 0f;
-        foreach(float v in scores.Values) {
+        foreach (float v in scores.Values)
+        {
             totalScore += v;
         }
         float avgScore = totalScore / scores.Count;
         return avgScore;
+    }
+
+    public bool IsGameOver()
+    {
+        return state == stateList.Length - 1;
     }
 }

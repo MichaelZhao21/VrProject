@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SubmitDish : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject textDisplay;
+
+    [SerializeField]
+    private GameObject gameMaster;
+
     private readonly HashSet<GameObject> inBox = new();
 
     public void Submit()
@@ -27,14 +34,20 @@ public class SubmitDish : MonoBehaviour
         // Does not have plate
         if (!hasPlate)
         {
-            Debug.Log("Submit area does not contain plate!");
+            textDisplay.GetComponent<Text>().text = "Submit area does not contain a plate!";
             return;
         }
 
         // Only has plate
         if (inBox.Count == 1)
         {
-            Debug.Log("Plate is empty!");
+            textDisplay.GetComponent<Text>().text = "Plate is empty!";
+            return;
+        }
+
+        // Has not reached last state
+        if (!gameMaster.GetComponent<GameMaster>().IsGameOver()) {
+            textDisplay.GetComponent<Text>().text = "You have not completed all steps!";
             return;
         }
 
