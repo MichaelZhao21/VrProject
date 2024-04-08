@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1137128014}
+      objectReference: {fileID: 0}
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1137128012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4f1929cf6febb348baca2fd4a5bd37, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d1cd882e19a7d8afba38dc9f3852202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thingToSpawn: {fileID: 49486605}
@@ -6904,7 +6904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb36ddd85a8273f090a3181b6695d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateFile: test-states
   textBox: {fileID: 1816013559}
 --- !u!114 &1653407669
 MonoBehaviour:

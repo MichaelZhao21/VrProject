@@ -24,7 +24,7 @@ public class GameMaster : MonoBehaviour
 
     private StateItem[] stateList;
 
-    public static string stateFile = "test-states";
+    public static string stateFile = "banana";
 
     [SerializeField]
     private GameObject textBox;
