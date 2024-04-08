@@ -24,23 +24,22 @@ public class GameMaster : MonoBehaviour
 
     private StateItem[] stateList;
 
-    [SerializeField]
-    [Tooltip("The file name of the state file in the Assets/Resources folder.")]
-    private string stateFile;
+    public static string stateFile = "test-states";
 
     [SerializeField]
     private GameObject textBox;
 
     // static variables
     public static Dictionary<string, float> scores = new();
-    
+
     public static GameObject finalPlating;
 
     public void Start()
     {
         // Read text from files
         TextAsset data = Resources.Load(stateFile) as TextAsset;
-        if (data == null) {
+        if (data == null)
+        {
             Debug.LogError("Invalid name for stateFile (does not exist): " + stateFile);
             return;
         }
@@ -51,11 +50,14 @@ public class GameMaster : MonoBehaviour
         stateList = new StateItem[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
-            string[] parts = lines[i].Split(' ');
+            string[] parts = lines[i].Trim().Split(' ');
 
-            if (parts.Length >= 2) {
+            if (parts.Length >= 2)
+            {
                 stateList[i] = new StateItem(parts[0], parts[1]);
-            } else {
+            }
+            else
+            {
                 stateList[i] = new StateItem(parts[0], "");
             }
         }
@@ -65,9 +67,8 @@ public class GameMaster : MonoBehaviour
 
     public void ChangeState(string stateName, string value = "")
     {
-        Debug.Log(stateName + " " + value + " " + state + " " + stateList.Length);
         // End of state
-        if (state == stateList.Length - 1)
+        if (IsGameOver())
         {
             return;
         }
@@ -84,7 +85,8 @@ public class GameMaster : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdateUI() {
+    public void UpdateUI()
+    {
         // Show debug message if needed
         if (textBox != null)
         {
@@ -92,18 +94,27 @@ public class GameMaster : MonoBehaviour
             string nextState = state == stateList.Length - 1 ? "End" : stateList[state + 1].name;
             string currentValue = state == -1 ? "" : stateList[state].value == "" ? "" : String.Format(" [{0}]", stateList[state].value);
             string nextValue = state == stateList.Length - 1 ? "" : stateList[state + 1].value == "" ? "" : String.Format(" [{0}]", stateList[state + 1].value);
-            string stateMsg = string.Format("Next Task: {2}{3} (previous: {0}{1})", currentState, currentValue, nextState, nextValue);
+            string stateMsg = string.Format("Next Task: {2}{3}\n\n(previous: {0}{1})", currentState, currentValue, nextState, nextValue);
             textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
         }
     }
 
-    public static float CalculateAverageScore() {
+    public static float CalculateAverageScore()
+    {
+        if (scores.Count == 0) return 0;
+
         // Calculate score for dish and show final menu
         float totalScore = 0f;
-        foreach(float v in scores.Values) {
+        foreach (float v in scores.Values)
+        {
             totalScore += v;
         }
         float avgScore = totalScore / scores.Count;
         return avgScore;
+    }
+
+    public bool IsGameOver()
+    {
+        return state == stateList.Length - 1;
     }
 }
