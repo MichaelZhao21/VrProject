@@ -37,10 +37,7 @@ public class Knife : MonoBehaviour
     {
         ContactPoint contact = collision.GetContact(0);
 
-        Debug.Log("Collided with object at " + contact.point);
-
         // Calculate the normal of plane to slice
-
         Debug.DrawRay(contact.point, transform.forward, Color.red, 10.0f);
 
         GameObject pl = DrawPlane(transform.forward, contact.point);

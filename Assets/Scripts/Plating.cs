@@ -24,7 +24,6 @@ public class Plating : MonoBehaviour
 
         // Update state
         if (!gameObject.TryGetComponent<StateChange>(out var sc)) return;
-        Debug.Log(collision.gameObject.name);
         sc.Change(collision.gameObject.name);
     }
 }

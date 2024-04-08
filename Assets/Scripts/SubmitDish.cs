@@ -83,13 +83,11 @@ public class SubmitDish : MonoBehaviour
 
     public void OnTriggerEnter(Collider c)
     {
-        Debug.Log("trigger enter");
         inBox.Add(c.gameObject);
     }
 
     public void OnTriggerExit(Collider c)
     {
-        Debug.Log("trigger exit");
         inBox.Remove(c.gameObject);
     }
 }

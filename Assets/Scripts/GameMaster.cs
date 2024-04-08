@@ -24,9 +24,7 @@ public class GameMaster : MonoBehaviour
 
     private StateItem[] stateList;
 
-    [SerializeField]
-    [Tooltip("The file name of the state file in the Assets/Resources folder.")]
-    private string stateFile;
+    public static string stateFile = "test-states";
 
     [SerializeField]
     private GameObject textBox;
@@ -69,7 +67,6 @@ public class GameMaster : MonoBehaviour
 
     public void ChangeState(string stateName, string value = "")
     {
-        Debug.Log(stateName + " " + value + " " + state + " " + stateList.Length);
         // End of state
         if (IsGameOver())
         {
