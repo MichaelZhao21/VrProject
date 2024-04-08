@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class StateChange : MonoBehaviour
 {
-    [SerializeField]
-    private string stateName;
+    public string stateName = "";
 
-    [SerializeField]
-    private GameObject gameMaster;
+    public GameObject gameMaster;
 
     public void Change(string value)
     {

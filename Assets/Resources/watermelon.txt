@@ -1,0 +1,4 @@
+open_fridge
+grab_watermelon
+cut_ingredient watermelon
+plate watermelon-cut

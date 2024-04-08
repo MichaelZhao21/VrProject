@@ -15,6 +15,7 @@ Asset name (folder in Assets) - description
 - [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488) (QuickOutline) - Used for outlining objects
 - [EzySlice](https://github.com/DavidArayan/ezy-slice) (EzySlice) - Used to slice meshes using a plane
 - [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
+- [HQ Kitchen Rusty Knife](https://assetstore.unity.com/packages/3d/props/weapons/hq-kitchen-rusty-knife-83994) (CustomShapes/blender/knife.blend) - Used as a base model for the knife, applied custom materials
 
 # Blender Overview
 
@@ -127,3 +128,12 @@ The actual fridge container is also a custom blender object ([Hollow Box](./Asse
 The pause menu listens for user input using the XRI Default [Input Actions](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Actions.html), modified to add a menu button interaction (see the [input actions file](./Assets/Samples/XR%20Interaction%20Toolkit/2.5.2/Starter%20Assets/XRI%20Default%20Input%20Actions.inputactions)).
 
 The menu is a canvas with text and button elements on it, which will have its position set to the user and its rotation set to where the user is facing, level with the player's vertical position.
+
+## Ingredients
+
+All ingredient objects need the following to work properly with cutting and cooking interactions:
+
+- Tagged with the `ingredient` tag
+- Mesh Collider with the `Convex` variable set to true
+- State Change script with `Game Master` assigned
+- Ingredient script with `Inner Material` assigned
