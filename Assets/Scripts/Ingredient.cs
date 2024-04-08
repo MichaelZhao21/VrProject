@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public bool grabbed;
+    public bool grabbed = false;
 
     public float CookingPercentage = 0;
     public bool isCooked = false;
     public bool isCooking = false;
+
+    [Tooltip("Material for inside of mesh when cut")]
+    public Material innerMaterial;
 
     public void Grab() {
         // Ignore if no fixed joint

@@ -128,3 +128,12 @@ The actual fridge container is also a custom blender object ([Hollow Box](./Asse
 The pause menu listens for user input using the XRI Default [Input Actions](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Actions.html), modified to add a menu button interaction (see the [input actions file](./Assets/Samples/XR%20Interaction%20Toolkit/2.5.2/Starter%20Assets/XRI%20Default%20Input%20Actions.inputactions)).
 
 The menu is a canvas with text and button elements on it, which will have its position set to the user and its rotation set to where the user is facing, level with the player's vertical position.
+
+## Ingredients
+
+All ingredient objects need the following to work properly with cutting and cooking interactions:
+
+- Tagged with the `ingredient` tag
+- Mesh Collider with the `Convex` variable set to true
+- State Change script with `Game Master` assigned
+- Ingredient script with `Inner Material` assigned

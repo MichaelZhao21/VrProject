@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EzySlice;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -43,7 +44,7 @@ public class Knife : MonoBehaviour
         GameObject pl = DrawPlane(transform.forward, contact.point);
 
         // Slice the object
-        var objs = collision.gameObject.SliceInstantiate(pl.transform.position, pl.transform.up, collision.gameObject.GetComponent<MeshRenderer>().material);
+        var objs = collision.gameObject.SliceInstantiate(pl.transform.position, pl.transform.up, collision.gameObject.GetComponent<Ingredient>().innerMaterial);
 
         // If objs is null, the object was not sliced
         if (objs == null)
@@ -87,12 +88,26 @@ public class Knife : MonoBehaviour
                 obj.AddComponent<XRGeneralGrabTransformer>();
 
                 // Add outline
-                obj.AddComponent<Outline>();
-                var o = obj.GetComponent<Outline>();
+                var o = obj.AddComponent<Outline>();
                 o.OutlineMode = Outline.Mode.OutlineAll;
                 o.OutlineColor = Color.cyan;
                 o.OutlineWidth = 4f;
                 o.enabled = false;
+
+                // Add state change
+                var sc = obj.AddComponent<StateChange>();
+                var currSc = collision.gameObject.GetComponent<StateChange>();
+                sc.stateName = currSc.stateName;
+                sc.gameMaster = currSc.gameMaster;
+
+                // Add ingredient script
+                var ing = obj.AddComponent<Ingredient>();
+                var currIng = collision.gameObject.GetComponent<Ingredient>();
+                ing.grabbed = currIng.grabbed;
+                ing.CookingPercentage = currIng.CookingPercentage;
+                ing.isCooked = currIng.isCooked;
+                ing.isCooking = currIng.isCooking;
+                ing.innerMaterial = currIng.innerMaterial;
 
                 // Set ingredient tag
                 obj.tag = "ingredient";
