@@ -84,10 +84,19 @@ public class Oven : MonoBehaviour
             }
             if (food.GetComponent<Ingredient>().CookingPercentage == 150)
             {
-                GameObject cooked = food.transform.GetChild(1).gameObject;
-                for (int i = 0; i < cooked.transform.childCount; i++)
+                if (food.transform.childCount > 1){
+                    GameObject cooked = food.transform.GetChild(1).gameObject;
+                    for (int i = 0; i < cooked.transform.childCount; i++)
+                    {
+                        cooked.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = Color.black;
+                    }
+                }
+                else
                 {
-                    cooked.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = Color.black;
+                    for (int i = 0; i < food.GetComponent<MeshRenderer>().materials.Length; i++)
+                    {
+                        food.GetComponent<MeshRenderer>().materials[i].color = Color.black;
+                    }
                 }
                 gameObject.GetComponent<AudioSource>().Play();
             }

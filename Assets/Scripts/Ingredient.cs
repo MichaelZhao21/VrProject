@@ -23,19 +23,10 @@ public class Ingredient : MonoBehaviour
 
     void Update(){
         if (isCooked && !isDone){
-            // new code
-            transform.GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(0).gameObject.SetActive(false);
-
-            // Old code
-            // GameObject cooked = Instantiate(cookedversion, transform.position, transform.rotation);
-            // cooked.SetActive(true);
-            // cooked.GetComponent<Ingredient>().isCooked = true;
-            // cooked.GetComponent<Ingredient>().isDone = true;
-            // cooked.GetComponent<Ingredient>().CookingPercentage = CookingPercentage;
-            // gameObject.SetActive(false);
-
-
+            if (transform.childCount > 1){
+                transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(false);                
+            }
             isDone = true;
             
         }
