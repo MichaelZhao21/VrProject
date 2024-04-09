@@ -26,7 +26,6 @@ public class Cooking : MonoBehaviour
                 // Check if the color of the object is red
                 if (c.GetComponent<Burner>().isBurning == true)
                 {
-                    print("first part");
                     if (!coRoutine)
                     {
                         StartCoroutine(cookFood());
@@ -42,7 +41,6 @@ public class Cooking : MonoBehaviour
         foreach (GameObject food in inBox)
         {
             if (!food.CompareTag("ingredient")) continue;
-            print("second part");
             yield return new WaitForSeconds(1);
             // If the object is not already cooking, start cooking it
             if (food.GetComponent<Ingredient>().CookingPercentage < 100)
