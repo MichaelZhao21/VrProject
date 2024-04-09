@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -67,5 +68,9 @@ public class PauseMenu : MonoBehaviour
     {
         canvasRef.SetActive(false);
         shown = false;
+    }
+
+    public void BackToMenu() {
+        SceneManager.LoadScene("MainMenu");
     }
 }
