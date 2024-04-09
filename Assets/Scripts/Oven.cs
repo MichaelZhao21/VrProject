@@ -42,14 +42,17 @@ public class Oven : MonoBehaviour
 
     void Update(){
         if (isBaking){
-            foreach (GameObject food in insideOven){
-                if (food.tag == "ingredient"){
-                    if (!coRoutine)
-                    {
-                        StartCoroutine(cookFood(food));
+            if (insideOven.Count > 0){
+                foreach (GameObject food in insideOven){
+                    if (food.tag == "ingredient"){
+                        if (!coRoutine)
+                        {
+                            StartCoroutine(cookFood(food));
+                        }
                     }
                 }
             }
+            
         }
     }
 
