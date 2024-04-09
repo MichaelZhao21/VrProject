@@ -1,0 +1,4 @@
+open_fridge
+grab_steak
+cook steak
+plate steak

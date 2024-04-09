@@ -101,6 +101,8 @@ public class SubmitDish : MonoBehaviour
             }
         }
 
+        if (pieces.Count == 0) return;
+
         float score = 0f;
         foreach (var entry in pieces) {
             score += Math.Min(1, entry.Value / expPieces[entry.Key]);

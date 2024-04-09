@@ -1,0 +1,4 @@
+open_fridge
+grab_chicken
+cook chicken
+plate chicken
