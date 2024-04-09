@@ -75,11 +75,20 @@ public class Oven : MonoBehaviour
     {
         coRoutine = true;
         yield return new WaitForSeconds(1);
-        if (food.GetComponent<Ingredient>().CookingPercentage < 100){
+        if (food.GetComponent<Ingredient>().CookingPercentage < 150){
             food.GetComponent<Ingredient>().isCooking = true;
             food.GetComponent<Ingredient>().CookingPercentage += 10;
             if (food.GetComponent<Ingredient>().CookingPercentage == 100){
                 food.GetComponent<Ingredient>().isCooked = true;
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            if (food.GetComponent<Ingredient>().CookingPercentage == 150)
+            {
+                GameObject cooked = food.transform.GetChild(1).gameObject;
+                for (int i = 0; i < cooked.transform.childCount; i++)
+                {
+                    cooked.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = Color.black;
+                }
                 gameObject.GetComponent<AudioSource>().Play();
             }
         }
