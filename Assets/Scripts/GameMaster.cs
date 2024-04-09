@@ -103,6 +103,8 @@ public class GameMaster : MonoBehaviour
     {
         if (scores.Count == 0) return 0;
 
+        Debug.Log(scores.Count);
+
         // Calculate score for dish and show final menu
         float totalScore = 0f;
         foreach (float v in scores.Values)
