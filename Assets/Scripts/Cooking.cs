@@ -4,50 +4,33 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
+    private readonly HashSet<GameObject> inBox = new();
 
-    // List of food objects that are touching the object
-    private List<GameObject> touchingFood = new List<GameObject>();
-    
     bool coRoutine = false;
     void Update()
     {
-
-
         // Check if to see if the its on a burning bunrer
-        Collider[] colliders = Physics.OverlapBox(transform.position, transform.localScale / 2);
-        foreach (Collider collider in colliders)
+        foreach (var c in inBox)
         {
-            if (collider.CompareTag("ingredient"))
+            if (c.CompareTag("ingredient"))
             {
                 // If object already has a fixed joint, don't add another one
-                if (collider.GetComponent<FixedJoint>() == null)
+                if (c.GetComponent<FixedJoint>() == null)
                 {
-                    FixedJoint joint = collider.gameObject.AddComponent<FixedJoint>();
+                    FixedJoint joint = c.AddComponent<FixedJoint>();
                     joint.connectedBody = gameObject.GetComponent<Rigidbody>();
-                    // Add the object to the touchingFood List
-                    touchingFood.Add(collider.gameObject);
                 }
             }
-            if (collider.CompareTag("burner"))
+            if (c.CompareTag("burner"))
             {
                 // Check if the color of the object is red
-                if (collider.GetComponent<Renderer>().material.color == Color.red)
+                if (c.GetComponent<Renderer>().material.color == Color.red)
                 {
                     if (!coRoutine)
                     {
                         StartCoroutine(cookFood());
                     }
                 }
-            }else{
-                foreach (GameObject food in touchingFood)
-                {
-                    // If the object is not already cooking, start cooking it
-                    if (food.GetComponent<Ingredient>().isCooking)
-                    {
-                        food.GetComponent<Ingredient>().isCooking = false;
-                    }
-                }
-            
             }
         }
     }
@@ -55,8 +38,10 @@ public class Cooking : MonoBehaviour
     IEnumerator cookFood()
     {
         coRoutine = true;
-        foreach (GameObject food in touchingFood)
+        foreach (GameObject food in inBox)
         {
+            if (!food.CompareTag("ingredient")) continue;
+
             // If the object is not already cooking, start cooking it
             if (food.GetComponent<Ingredient>().CookingPercentage < 120)
             {
@@ -81,6 +66,17 @@ public class Cooking : MonoBehaviour
         coRoutine = false;
     }
 
+    public void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.CompareTag("ingredient") || c.gameObject.CompareTag("burner"))
+            inBox.Add(c.gameObject);
+    }
+
+    public void OnCollisionExit(Collision c)
+    {
+        if (c.gameObject.CompareTag("ingredient") || c.gameObject.CompareTag("burner"))
+            inBox.Remove(c.gameObject);
+    }
 
 
 }

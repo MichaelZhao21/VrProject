@@ -15,8 +15,8 @@ public class Burner : MonoBehaviour
     }
 
     void BurnerOff(){
-        // Change color of burner to black
-        burner.GetComponent<Renderer>().material.color = Color.black;
+        // Change color of burner to grey
+        burner.GetComponent<Renderer>().material.color = new Color(0.13f, 0.13f, 0.13f);
     }
 
     // Update is called once per frame
