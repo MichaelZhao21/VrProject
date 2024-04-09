@@ -71,27 +71,15 @@ public class Oven : MonoBehaviour
     IEnumerator cookFood(GameObject food)
     {
         coRoutine = true;
-        yield return new WaitForSeconds(2);
-        // If the object is not already cooking, start cooking it
-        if (food.GetComponent<Ingredient>().CookingPercentage < 120)
-        {
+        yield return new WaitForSeconds(1);
+        if (food.GetComponent<Ingredient>().CookingPercentage < 100){
             food.GetComponent<Ingredient>().isCooking = true;
             food.GetComponent<Ingredient>().CookingPercentage += 10;
-            if (food.GetComponent<Ingredient>().CookingPercentage == 100)
-            {
-                food.GetComponent<Renderer>().material.color = Color.black;
+            if (food.GetComponent<Ingredient>().CookingPercentage == 100){
                 food.GetComponent<Ingredient>().isCooked = true;
                 gameObject.GetComponent<AudioSource>().Play();
-
-            }
-            if (food.GetComponent<Ingredient>().CookingPercentage >= 120)
-            {
-                food.GetComponent<Renderer>().material.color = Color.red;
-                gameObject.GetComponent<AudioSource>().Play();
-                food.GetComponent<Ingredient>().isCooking = false;
             }
         }
-
         coRoutine = false;
     }
 
