@@ -32,6 +32,7 @@ public class Ingredient : MonoBehaviour
             GameObject cooked = Instantiate(cookedversion, transform.position, transform.rotation);
             cooked.SetActive(true);
             cooked.GetComponent<Ingredient>().isCooked = true;
+            cooked.GetComponent<Ingredient>().isDone = true;
             cooked.GetComponent<Ingredient>().CookingPercentage = CookingPercentage;
             gameObject.SetActive(false);
             isDone = true;

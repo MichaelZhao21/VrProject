@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42474
+      value: -4.149
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2724
+      value: 0.843
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.114
+      value: 1.841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
       propertyPath: m_LocalRotation.w
@@ -91,6 +91,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8024663964935669145}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4443349491002379325}
   m_SourcePrefab: {fileID: 100100000, guid: faf87b1f2fcc34766b1fa381687bbf49, type: 3}
 --- !u!1 &5800303709041000435 stripped
 GameObject:
@@ -195,10 +198,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5694209958784686769}
+        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+        m_MethodName: Grab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5694209958784686769}
+        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+        m_MethodName: Ungrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -341,3 +368,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.51298743, y: 0.07053661, z: 1}
   m_Center: {x: 0.011713654, y: -0.060148478, z: 0}
+--- !u!114 &4443349491002379325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800303709041000435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563bf79d46575dac4b1a8fa9b24859cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: grab_steak
+  gameMaster: {fileID: 0}
