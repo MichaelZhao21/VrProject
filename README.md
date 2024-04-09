@@ -15,6 +15,7 @@ Asset name (folder in Assets) - description
 - [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488) (QuickOutline) - Used for outlining objects
 - [EzySlice](https://github.com/DavidArayan/ezy-slice) (EzySlice) - Used to slice meshes using a plane
 - [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
+- [Simple Foods](https://assetstore.unity.com/packages/3d/props/food/simple-foods-207032) (AddOns/Simple Foods) - More food models that includes both cooked and uncooked versions of the foods, from official Unity Assets
 - [HQ Kitchen Rusty Knife](https://assetstore.unity.com/packages/3d/props/weapons/hq-kitchen-rusty-knife-83994) (CustomShapes/blender/knife.blend) - Used as a base model for the knife, applied custom materials
 
 # Blender Overview
