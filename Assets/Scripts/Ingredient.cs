@@ -6,8 +6,6 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public bool grabbed = false;
-
-    public GameObject cookedversion;
     
     public float minVolume = 0f;
     
@@ -23,19 +21,23 @@ public class Ingredient : MonoBehaviour
     [Tooltip("Material for inside of mesh when cut")]
     public Material innerMaterial;
 
-    void Awake(){
-        cookedversion = GameObject.Find(gameObject.name + "Cooked");
-    }
-
     void Update(){
         if (isCooked && !isDone){
-            GameObject cooked = Instantiate(cookedversion, transform.position, transform.rotation);
-            cooked.SetActive(true);
-            cooked.GetComponent<Ingredient>().isCooked = true;
-            cooked.GetComponent<Ingredient>().isDone = true;
-            cooked.GetComponent<Ingredient>().CookingPercentage = CookingPercentage;
-            gameObject.SetActive(false);
+            // new code
+            transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(false);
+
+            // Old code
+            // GameObject cooked = Instantiate(cookedversion, transform.position, transform.rotation);
+            // cooked.SetActive(true);
+            // cooked.GetComponent<Ingredient>().isCooked = true;
+            // cooked.GetComponent<Ingredient>().isDone = true;
+            // cooked.GetComponent<Ingredient>().CookingPercentage = CookingPercentage;
+            // gameObject.SetActive(false);
+
+
             isDone = true;
+            
         }
     }
     public void Grab() {

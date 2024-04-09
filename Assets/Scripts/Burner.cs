@@ -5,18 +5,17 @@ using UnityEngine;
 public class Burner : MonoBehaviour
 {
 
-    [SerializeField] public GameObject burner;
-    private bool isBurning = false;
+    public bool isBurning = false;
     
     // Start is called before the first frame update
     void BurnerOn(){
         // Change color of burner to red
-        burner.GetComponent<Renderer>().material.color = Color.red;
+        gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
     void BurnerOff(){
         // Change color of burner to grey
-        burner.GetComponent<Renderer>().material.color = new Color(0.13f, 0.13f, 0.13f);
+        gameObject.GetComponent<Renderer>().material.color = new Color(0.13f, 0.13f, 0.13f);
     }
 
     // Update is called once per frame

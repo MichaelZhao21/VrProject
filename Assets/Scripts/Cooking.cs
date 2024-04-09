@@ -24,7 +24,7 @@ public class Cooking : MonoBehaviour
             if (c.CompareTag("burner"))
             {
                 // Check if the color of the object is red
-                if (c.GetComponent<Renderer>().material.color == Color.red)
+                if (c.GetComponent<Burner>().isBurning == true)
                 {
                     if (!coRoutine)
                     {
@@ -41,25 +41,26 @@ public class Cooking : MonoBehaviour
         foreach (GameObject food in inBox)
         {
             if (!food.CompareTag("ingredient")) continue;
-
+            yield return new WaitForSeconds(1);
             // If the object is not already cooking, start cooking it
-            if (food.GetComponent<Ingredient>().CookingPercentage < 120)
+            if (food.GetComponent<Ingredient>().CookingPercentage < 150)
             {
                 food.GetComponent<Ingredient>().isCooking = true;
-                yield return new WaitForSeconds(2);
                 food.GetComponent<Ingredient>().CookingPercentage += 10;
                 if (food.GetComponent<Ingredient>().CookingPercentage == 100)
                 {
-                    food.GetComponent<Renderer>().material.color = Color.black;
                     food.GetComponent<Ingredient>().isCooked = true;
                     gameObject.GetComponent<AudioSource>().Play();
 
                 }
-                if (food.GetComponent<Ingredient>().CookingPercentage >= 120)
+                if (food.GetComponent<Ingredient>().CookingPercentage == 150)
                 {
-                    food.GetComponent<Renderer>().material.color = Color.red;
+                    GameObject cooked = food.transform.GetChild(1).gameObject;
+                    for (int i = 0; i < cooked.transform.childCount; i++)
+                    {
+                        cooked.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = Color.black;
+                    }
                     gameObject.GetComponent<AudioSource>().Play();
-                    food.GetComponent<Ingredient>().isCooking = false;
                 }
             }
         }
