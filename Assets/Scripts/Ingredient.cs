@@ -26,6 +26,9 @@ public class Ingredient : MonoBehaviour
     public CookingState cookingState = CookingState.RAW;
     public bool isCooking = false;
 
+    [Tooltip("Progress bar image display with Progress script attached")]
+    public GameObject progressBar;
+
     [Tooltip("Material for inside of mesh when cut")]
     public Material innerMaterial;
 
@@ -56,6 +59,7 @@ public class Ingredient : MonoBehaviour
         // Continue cooking
         currentCookingTime += Time.deltaTime;
         cookingPercent = currentCookingTime / totalCookingTime;
+        if (progressBar) progressBar.GetComponent<Progress>().UpdateProgress(cookingPercent * 100);
         Debug.Log(name + " " + cookingPercent + " - " + currentCookingTime);
 
         // Check for raw
@@ -123,5 +127,8 @@ public class Ingredient : MonoBehaviour
 
         // Stop the cooking
         isCooking = false;
+
+        // Remove progress bar
+        if (progressBar) progressBar.GetComponent<Progress>().Hide();
     }
 }

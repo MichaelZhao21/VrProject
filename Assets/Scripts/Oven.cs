@@ -8,7 +8,7 @@ public class Oven : MonoBehaviour
 
     private Color defaultColor;
 
-    private List<GameObject> insideOven = new List<GameObject>();
+    private readonly List<GameObject> insideOven = new();
 
     void Start()
     {
@@ -20,6 +20,7 @@ public class Oven : MonoBehaviour
     {
         isBaking = !isBaking;
         GetComponent<MeshRenderer>().materials[1].color = isBaking ? Color.yellow : defaultColor;
+        GetComponent<AudioSource>().enabled = isBaking;
     }
 
     void Update()

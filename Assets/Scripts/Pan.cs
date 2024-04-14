@@ -25,16 +25,9 @@ public class Pan : MonoBehaviour
             // Set cooking to true if burner is on
             if (c.CompareTag("burner"))
             {
-                if (c.GetComponent<Burner>().isBurning)
-                {
-                    isCooking = true;
-                    GetComponent<AudioSource>().enabled = true;
-                }
-                else
-                {
-                    isCooking = false;
-                    GetComponent<AudioSource>().enabled = false;
-                }
+                bool burning = c.GetComponent<Burner>().isBurning;
+                isCooking = burning;
+                GetComponent<AudioSource>().enabled = burning;
             }
         }
     }
@@ -56,6 +49,4 @@ public class Pan : MonoBehaviour
         if (c.gameObject.CompareTag("ingredient") || c.gameObject.CompareTag("burner"))
             touching.Remove(c.gameObject);
     }
-
-
 }
