@@ -42,7 +42,7 @@ public class MainMenuController : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        textDisplay.GetComponent<Text>().text = recipeList[selected];
+        textDisplay.GetComponent<Text>().text = GameMaster.GetDisplay(recipeList[selected]);
     }
 
     public void StartGame()

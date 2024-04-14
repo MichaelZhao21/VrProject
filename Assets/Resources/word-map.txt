@@ -1,0 +1,9 @@
+open_fridge Open the Fridge
+grab Grab
+plate Plate
+cook Cook
+cut_ingredient Cut with Knife
+banana Simple Plating Tutorial
+watermelon Cut Watermelon
+steak Pan Sear a Steak
+chicken Cook a Chicken in the Oven
