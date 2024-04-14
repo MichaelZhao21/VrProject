@@ -126,10 +126,18 @@ public class Knife : MonoBehaviour
                 var currIng = collision.gameObject.GetComponent<Ingredient>();
                 ing.grabbed = currIng.grabbed;
                 ing.minVolume = currIng.minVolume;
-                ing.CookingPercentage = currIng.CookingPercentage;
-                ing.isCooked = currIng.isCooked;
+                ing.expectedPieces = currIng.expectedPieces;
+                ing.totalCookingTime = currIng.totalCookingTime;
+                ing.overcookedTime = currIng.overcookedTime;
+                ing.cookingPercent = currIng.cookingPercent;
+                ing.cookingState = currIng.cookingState;
                 ing.isCooking = currIng.isCooking;
                 ing.innerMaterial = currIng.innerMaterial;
+
+                // Add audio source
+                var audSource = obj.AddComponent<AudioSource>();
+                audSource.playOnAwake = false;
+                audSource.clip = collision.gameObject.GetComponent<AudioSource>().clip;
 
                 // Set ingredient tag
                 obj.tag = "ingredient";

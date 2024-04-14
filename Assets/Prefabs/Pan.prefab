@@ -120,7 +120,7 @@ PrefabInstance:
       addedObject: {fileID: 7025587838506918510}
     - targetCorrespondingSourceObject: {fileID: 1595064584167594891, guid: 5bfe5eeb62006d648b8bbd57e5f8d46c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8275769957306551128}
+      addedObject: {fileID: 8418744402263019501}
   m_SourcePrefab: {fileID: 100100000, guid: 5bfe5eeb62006d648b8bbd57e5f8d46c, type: 3}
 --- !u!1 &5242921510758070750 stripped
 GameObject:
@@ -224,27 +224,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7921095120403375834, guid: 5bfe5eeb62006d648b8bbd57e5f8d46c, type: 3}
---- !u!82 &8275769957306551128
+--- !u!82 &8418744402263019501
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242921510758070750}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: b4c72c87edab1c5039b64a455c143eb5, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.951645
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
