@@ -26,6 +26,8 @@ public class GameMaster : MonoBehaviour
 
     public static string stateFile = "watermelon";
 
+    public static Dictionary<string, string> textMap = new();
+
     [SerializeField]
     private GameObject textBox;
 
@@ -90,11 +92,11 @@ public class GameMaster : MonoBehaviour
         // Show debug message if needed
         if (textBox != null)
         {
-            string currentState = state == -1 ? "Start" : stateList[state].name;
-            string nextState = state == stateList.Length - 1 ? "End" : stateList[state + 1].name;
+            string currentState = state == -1 ? "N/A" : GetDisplay(stateList[state].name);
+            string nextState = state == stateList.Length - 1 ? "Submit Dish!" : GetDisplay(stateList[state + 1].name);
             string currentValue = state == -1 ? "" : stateList[state].value == "" ? "" : String.Format(" [{0}]", stateList[state].value);
             string nextValue = state == stateList.Length - 1 ? "" : stateList[state + 1].value == "" ? "" : String.Format(" [{0}]", stateList[state + 1].value);
-            string stateMsg = string.Format("Next Task: {2}{3}\n\n(previous: {0}{1})", currentState, currentValue, nextState, nextValue);
+            string stateMsg = string.Format("Next Task: {2}{3}\n\n(Last Completed: {0}{1})", currentState, currentValue, nextState, nextValue);
             textBox.GetComponent<UnityEngine.UI.Text>().text = stateMsg;
         }
     }
@@ -118,5 +120,25 @@ public class GameMaster : MonoBehaviour
     public bool IsGameOver()
     {
         return state == stateList.Length - 1;
+    }
+
+    public static void LoadTextMap()
+    {
+        TextAsset data = Resources.Load("word-map") as TextAsset;
+        string[] lines = data.text.Split('\n').Where(c => !c.Trim().StartsWith("#") && c.Trim() != "").ToArray();
+        foreach (var line in lines)
+        {
+            string[] parts = line.Trim().Split(' ');
+            string val = line[(parts[0].Length + 1)..];
+            textMap.Add(parts[0], val);
+        }
+    }
+
+    public static string GetDisplay(string key)
+    {
+        if (textMap.Count == 0) LoadTextMap();
+
+        if (!textMap.ContainsKey(key)) return key;
+        return textMap[key];
     }
 }

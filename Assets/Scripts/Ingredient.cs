@@ -41,7 +41,7 @@ public class Ingredient : MonoBehaviour
     }
     public void Grab()
     {
-        gameObject.GetComponent<StateChange>().Change("");
+        gameObject.GetComponent<StateChange>().Change(name);
         grabbed = true;
 
         // Don't do if no joint
