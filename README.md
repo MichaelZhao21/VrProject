@@ -18,6 +18,7 @@ Asset name (folder in Assets) - description
 - [Simple Foods](https://assetstore.unity.com/packages/3d/props/food/simple-foods-207032) (AddOns/Simple Foods) - More food models that includes both cooked and uncooked versions of the foods, from official Unity Assets
 - [HQ Kitchen Rusty Knife](https://assetstore.unity.com/packages/3d/props/weapons/hq-kitchen-rusty-knife-83994) (CustomShapes/blender/knife.blend) - Used as a base model for the knife, applied custom materials
 - [Frying in a pan](https://pixabay.com/sound-effects/frying-in-a-pan-6017/) (Sounds/frying.wav) - Frying pan sound effect
+- [NoirMat Marble Pack Vol 1](https://assetstore.unity.com/packages/2d/textures-materials/noirmat-marble-pack-vol-01-128318) (NoirMarblePack01) - Texture for walls
 
 # Blender Overview
 
