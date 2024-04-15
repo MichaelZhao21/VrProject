@@ -810,6 +810,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: burner
       objectReference: {fileID: 0}
+    - target: {fileID: -2859109400176981367, guid: 777aa9939ea5caa289d4c14f2fdd8452, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a558816aa8b0d4878c1bef3afab72aa, type: 2}
     - target: {fileID: 919132149155446097, guid: 777aa9939ea5caa289d4c14f2fdd8452, type: 3}
       propertyPath: m_Name
       value: stovetop

@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2425652092194316975, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a558816aa8b0d4878c1bef3afab72aa, type: 2}
     - target: {fileID: 919132149155446097, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
       propertyPath: m_Name
       value: oven
@@ -327,6 +331,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8695720818539682348, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a558816aa8b0d4878c1bef3afab72aa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
