@@ -405,12 +405,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
-  minVolume: 0.0012
+  minCutDim: 0.05
   expectedPieces: 5
-  CookingPercentage: 0
-  isCooked: 0
+  totalCookingTime: 10
+  overcookedTime: 5
+  cookingPercent: 0
+  currentCookingTime: 0
+  cookingState: 0
   isCooking: 0
-  isDone: 0
+  progressBar: {fileID: 0}
   innerMaterial: {fileID: 2100012, guid: 7977e423937da9b48aac1866c67bb5be, type: 3}
 --- !u!114 &476903221380014297
 MonoBehaviour:
