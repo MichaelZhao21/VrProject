@@ -117,6 +117,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e12ae035b10dd019d93b07efdf18bac9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5981754478210509305}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e12ae035b10dd019d93b07efdf18bac9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512810126329368667}
   m_SourcePrefab: {fileID: 100100000, guid: e12ae035b10dd019d93b07efdf18bac9, type: 3}
 --- !u!4 &6926308988867726449 stripped
 Transform:
@@ -427,3 +430,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0074048787, y: 0.0074277464, z: 0.00008216796}
   m_Center: {x: 0.0000067988035, y: -0.000020662546, z: -0.0008607812}
+--- !u!114 &512810126329368667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734054917999826635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563bf79d46575dac4b1a8fa9b24859cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: plate
+  gameMaster: {fileID: 0}

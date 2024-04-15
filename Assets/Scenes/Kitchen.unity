@@ -3538,6 +3538,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 512810126329368667, guid: 4fb49c313ebe7f1cb9adfb560e1b924b, type: 3}
+      propertyPath: gameMaster
+      value: 
+      objectReference: {fileID: 975955223}
     - target: {fileID: 2275581335963860814, guid: 4fb49c313ebe7f1cb9adfb560e1b924b, type: 3}
       propertyPath: m_Name
       value: Plate

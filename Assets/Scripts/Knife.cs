@@ -103,12 +103,6 @@ public class Knife : MonoBehaviour
                 // Add rigidbody
                 obj.AddComponent<Rigidbody>();
 
-                // Add grab interactable
-                obj.AddComponent<XRGrabInteractable>();
-
-                // Add grab transformer
-                obj.AddComponent<XRGeneralGrabTransformer>();
-
                 // Add outline
                 var o = obj.AddComponent<Outline>();
                 o.OutlineMode = Outline.Mode.OutlineAll;
@@ -139,6 +133,17 @@ public class Knife : MonoBehaviour
                 var audSource = obj.AddComponent<AudioSource>();
                 audSource.playOnAwake = false;
                 audSource.clip = collision.gameObject.GetComponent<AudioSource>().clip;
+
+                // Add grab interactable
+                var xrgi = obj.AddComponent<XRGrabInteractable>();
+                xrgi.useDynamicAttach = true;
+                xrgi.hoverEntered.AddListener((hoverEventArgs) => ing.EnableOutline());
+                xrgi.hoverExited.AddListener((hoverEventArgs) => ing.DisableOutline());
+                xrgi.selectEntered.AddListener((selectEventArgs) => ing.Grab());
+                xrgi.selectExited.AddListener((selectEventArgs) => ing.Ungrab());
+
+                // Add grab transformer
+                obj.AddComponent<XRGeneralGrabTransformer>();
 
                 // Set ingredient tag
                 obj.tag = "ingredient";

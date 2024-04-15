@@ -34,11 +34,11 @@ public class Ingredient : MonoBehaviour
 
     public void Grab()
     {
-        gameObject.GetComponent<StateChange>().Change(name);
+        GetComponent<StateChange>().Change(name);
         grabbed = true;
 
         // Don't do if no joint
-        if (!gameObject.TryGetComponent<FixedJoint>(out var joint)) return;
+        if (!TryGetComponent<FixedJoint>(out var joint)) return;
         Destroy(joint);
     }
 
@@ -130,5 +130,15 @@ public class Ingredient : MonoBehaviour
 
         // Remove progress bar
         if (progressBar) progressBar.GetComponent<Progress>().Hide();
+    }
+
+    public void EnableOutline()
+    {
+        GetComponent<Outline>().enabled = true;
+    }
+
+    public void DisableOutline()
+    {
+        GetComponent<Outline>().enabled = false;
     }
 }
