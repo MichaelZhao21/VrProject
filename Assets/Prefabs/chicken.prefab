@@ -1002,8 +1002,8 @@ GameObject:
   - component: {fileID: 8483969771830154962}
   - component: {fileID: 6318981225445527977}
   - component: {fileID: 7550060386522011687}
-  - component: {fileID: 3472579555789299011}
   - component: {fileID: 5481986168079376741}
+  - component: {fileID: 558884072932729404}
   - component: {fileID: 4656743998541179335}
   - component: {fileID: 8144942552387809279}
   m_Layer: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
-  minVolume: 0
+  minCutDim: 0
   expectedPieces: 5
   totalCookingTime: 10
   overcookedTime: 5
@@ -1304,8 +1304,22 @@ MonoBehaviour:
   isCooking: 0
   progressBar: {fileID: 6953746181532607329}
   innerMaterial: {fileID: -6478536213147159724, guid: 903b7910f2cde4c96b452f0008927d45, type: 3}
---- !u!65 &3472579555789299011
-BoxCollider:
+--- !u!114 &5481986168079376741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680317288674398020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563bf79d46575dac4b1a8fa9b24859cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: grab
+  gameMaster: {fileID: 0}
+--- !u!136 &558884072932729404
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1322,23 +1336,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5481986168079376741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6680317288674398020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563bf79d46575dac4b1a8fa9b24859cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateName: grab
-  gameMaster: {fileID: 0}
+  serializedVersion: 2
+  m_Radius: 0.42426476
+  m_Height: 1.5057527
+  m_Direction: 0
+  m_Center: {x: 0.13375649, y: 0.07610142, z: 0.018752415}
 --- !u!114 &4656743998541179335
 MonoBehaviour:
   m_ObjectHideFlags: 0
