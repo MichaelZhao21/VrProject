@@ -20,6 +20,7 @@ Asset name (folder in Assets) - description
 - [Switch sound effect](https://pixabay.com/sound-effects/switch-150130/) (Sounds/switch.wav) - Switch sound effect
 - [Oven fan sound](https://pixabay.com/sound-effects/oven-fan-kitchen-appliance-23690/) (Sounds/oven.wav) - Sound effect for oven being on
 - [NoirMat Marble Pack Vol 1](https://assetstore.unity.com/packages/2d/textures-materials/noirmat-marble-pack-vol-01-128318) (NoirMarblePack01) - Texture for walls
+- [PBR Tile Texture Floor](https://assetstore.unity.com/packages/2d/textures-materials/tiles/pbr-tile-texture-floor-36243) (pbr\_textures) - Texture for floor
 
 # Blender Overview
 
