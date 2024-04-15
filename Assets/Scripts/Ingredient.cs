@@ -9,8 +9,8 @@ public class Ingredient : MonoBehaviour
 
     public bool grabbed = false;
 
-    [Tooltip("Minimum volume to allow to be cut, set to 0 for infinite thinness")]
-    public float minVolume = 0f;
+    [Tooltip("Minimum dimension length to allow to be cut, set to 0 for infinite thinness")]
+    public float minCutDim = 0f;
 
     [Tooltip("Expected number of pieces this ingredient should be cut in; score is max{1, pieces/expectedPieces}")]
     public int expectedPieces = 5;

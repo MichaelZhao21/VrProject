@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using EzySlice;
@@ -60,10 +61,10 @@ public class Knife : MonoBehaviour
             slicing = false;
             yield return new WaitForEndOfFrame();
         }
-        else if (GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minVolume ||
-            GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minVolume)
+        else if (GetMinDim(objs[0].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minCutDim ||
+            GetMinDim(objs[1].GetComponent<MeshRenderer>().bounds.size) < collision.gameObject.GetComponent<Ingredient>().minCutDim)
         {
-            Debug.Log("COULDN'T CUT: " + GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size));
+            Debug.Log("COULDN'T CUT: " + GetMinDim(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetMinDim(objs[1].GetComponent<MeshRenderer>().bounds.size));
             Destroy(objs[0]);
             Destroy(objs[1]);
             slicing = false;
@@ -71,7 +72,7 @@ public class Knife : MonoBehaviour
         }
         else
         {
-            Debug.Log("CUT: " + GetVolume(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetVolume(objs[1].GetComponent<MeshRenderer>().bounds.size));
+            Debug.Log("CUT: " + GetMinDim(objs[0].GetComponent<MeshRenderer>().bounds.size) + " " + GetMinDim(objs[1].GetComponent<MeshRenderer>().bounds.size));
             // So new objects dont hit it lol
             collision.gameObject.GetComponent<MeshCollider>().enabled = false;
 
@@ -125,7 +126,7 @@ public class Knife : MonoBehaviour
                 var ing = obj.AddComponent<Ingredient>();
                 var currIng = collision.gameObject.GetComponent<Ingredient>();
                 ing.grabbed = currIng.grabbed;
-                ing.minVolume = currIng.minVolume;
+                ing.minCutDim = currIng.minCutDim;
                 ing.expectedPieces = currIng.expectedPieces;
                 ing.totalCookingTime = currIng.totalCookingTime;
                 ing.overcookedTime = currIng.overcookedTime;
@@ -219,8 +220,8 @@ public class Knife : MonoBehaviour
         return plane;
     }
 
-    private float GetVolume(Vector3 size)
+    private float GetMinDim(Vector3 size)
     {
-        return size.x * size.y * size.z;
+        return Math.Min(Math.Min(size.x, size.y), size.z);
     }
 }

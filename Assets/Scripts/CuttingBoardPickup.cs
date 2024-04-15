@@ -6,15 +6,11 @@ using UnityEngine;
 
 public class CuttingBoardPickup : MonoBehaviour
 {
-    public GameObject fixArea;
-
     private bool grabbing = false;
 
     private bool isFixed = false;
 
     private float initialRotationX;
-
-    private float initialRotationZ;
 
     private readonly HashSet<GameObject> onBoard = new();
 
@@ -30,9 +26,7 @@ public class CuttingBoardPickup : MonoBehaviour
 
     public void Start()
     {
-        var initialRotEuler = transform.rotation.eulerAngles;
-        initialRotationX = initialRotEuler.x;
-        initialRotationZ = initialRotEuler.z;
+        initialRotationX = transform.rotation.eulerAngles.x;
     }
 
     public void Update()
@@ -67,6 +61,7 @@ public class CuttingBoardPickup : MonoBehaviour
         {
             if (!g.TryGetComponent<FixedJoint>(out var joint)) continue;
             Destroy(joint);
+            g.GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
         }
         isFixed = false;
     }
@@ -84,8 +79,7 @@ public class CuttingBoardPickup : MonoBehaviour
 
     private bool IsRotated()
     {
-        return Math.Abs(initialRotationX - transform.rotation.eulerAngles.x) > 60 ||
-            Math.Abs(initialRotationZ - transform.rotation.eulerAngles.z) > 60;
+        return Math.Abs(initialRotationX - transform.rotation.eulerAngles.x) > 30;
     }
 
     private void RemoveNulls()

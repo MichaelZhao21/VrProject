@@ -23,11 +23,14 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+        // Don't spawn if we find any gameobject in collision area that has same name as spawn object
         foreach (GameObject g in inCollider) {
             if (g.name == objRef.name) {
                 return;
             }
         }
+
+        // Otherwise spawn!!!
         Spawn();
     }
 
