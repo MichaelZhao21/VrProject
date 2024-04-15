@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: counter-sink
       objectReference: {fileID: 0}
+    - target: {fileID: 2621172771033941962, guid: f8e78baff4c6988d092ae0fb70a8aa4f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fadc3b3bc5e17742fb9d467dbeed6a76, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
