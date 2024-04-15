@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 558884072932729404}
   - component: {fileID: 4656743998541179335}
   - component: {fileID: 8144942552387809279}
+  - component: {fileID: 4383393229304348320}
   m_Layer: 0
   m_Name: chicken
   m_TagString: ingredient
@@ -1455,6 +1456,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &4383393229304348320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680317288674398020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2937378, y: 0.049661793, z: 1}
+  m_Center: {x: 0.14686902, y: -0.322117, z: -1.0242643e-15}
 --- !u!1 &6824415973820116626
 GameObject:
   m_ObjectHideFlags: 0
