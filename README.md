@@ -17,6 +17,7 @@ Asset name (folder in Assets) - description
 - [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
 - [Simple Foods](https://assetstore.unity.com/packages/3d/props/food/simple-foods-207032) (AddOns/Simple Foods) - More food models that includes both cooked and uncooked versions of the foods, from official Unity Assets
 - [HQ Kitchen Rusty Knife](https://assetstore.unity.com/packages/3d/props/weapons/hq-kitchen-rusty-knife-83994) (CustomShapes/blender/knife.blend) - Used as a base model for the knife, applied custom materials
+- [Frying in a pan](https://pixabay.com/sound-effects/frying-in-a-pan-6017/) (Sounds/frying.wav) - Frying pan sound effect
 
 # Blender Overview
 
@@ -137,4 +138,6 @@ All ingredient objects need the following to work properly with cutting and cook
 - Tagged with the `ingredient` tag
 - Mesh Collider with the `Convex` variable set to true
 - State Change script with `Game Master` assigned
-- Ingredient script with `Inner Material` assigned
+- Ingredient script with `Inner Material`, `Expected Pieces`, `Total Cooking Time`, and `Overcooked Time` set
+- Outline script, with `Outline Color` set and `AudioClip` set to the button pop (done cooking sound)
+
