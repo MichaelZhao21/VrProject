@@ -22,6 +22,12 @@ Asset name (folder in Assets) - description
 - [NoirMat Marble Pack Vol 1](https://assetstore.unity.com/packages/2d/textures-materials/noirmat-marble-pack-vol-01-128318) (NoirMarblePack01) - Texture for walls
 - [PBR Tile Texture Floor](https://assetstore.unity.com/packages/2d/textures-materials/tiles/pbr-tile-texture-floor-36243) (pbr\_textures) - Texture for floor
 
+### Image Texture Assets
+- [Banana](https://png.pngtree.com/png-clipart/20220914/ourmid/pngtree-cartoon-banana-fruit-png-image_6174713.png)
+- [Watermelon](https://www.cleanpng.com/png-watermelon-public-domain-clip-art-watermelon-637314/)
+- [Steak](https://banner2.cleanpng.com/20180214/qre/kisspng-steak-meat-beef-clip-art-rotten-meat-cliparts-5a849917080df2.325551841518639383033.jpg)
+- [Chicken](https://cdn2.iconfinder.com/data/icons/meat-28/500/vab882_19_chicken_meat_isometric_cartoon_retro_food_vintage-512.png)
+
 # Blender Overview
 
 All files from blender are stored in `Assets/CustomShapes`. This folder has 2 subdirectories: `blender` and `textures`. The `blender` folder is where all `.blend` files should be placed. The `textures` folder is where exported textures are placed (see below). All models imported into Unity should be in the main `CustomShapes` folder, in the FBX format.
@@ -144,3 +150,11 @@ All ingredient objects need the following to work properly with cutting and cook
 - Ingredient script with `Inner Material`, `Expected Pieces`, `Total Cooking Time`, and `Overcooked Time` set
 - Outline script, with `Outline Color` set and `AudioClip` set to the button pop (done cooking sound)
 
+## Containers (of all kind)
+
+There is a script called `Container Pickup`. This script allows for items to follow containers and move with them. The way it's done is it will just make the ingredients in the containers the children of the containers. Thus, it will move WITH the container when the container is grabbed. There are a few things to set up to make this work:
+
+1. Container must have a Rigidbody, XR Grab Interactable, and XR General Grab Transformer
+2. Container must have a Collider (with `Is Trigger` checked) that is the area that you want objects to stay in when grabbed
+3. Add the Container Pickup script
+4. Set the `Select Entered` and `Select Exited` to the `ContainerPickup.Grab` and `ContainerPickup.Ungrab` functions respectively

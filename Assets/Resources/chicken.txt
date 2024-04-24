@@ -1,4 +1,4 @@
-open_fridge
+dispense chicken
 grab chicken
 cook chicken
 plate chicken

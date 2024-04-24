@@ -1,4 +1,4 @@
-open_fridge
+dispense steak
 grab steak
 cook steak
 plate steak
