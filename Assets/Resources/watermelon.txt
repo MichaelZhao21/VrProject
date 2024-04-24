@@ -1,4 +1,4 @@
-open_fridge
+dispense watermelon
 grab watermelon
 cut_ingredient watermelon
 plate watermelon-cut

@@ -121,10 +121,10 @@ PrefabInstance:
       addedObject: {fileID: 8592604173700719381}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc6d5c3f7ae3c9b58988c8d6ef404398, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1518450341181373720}
+      addedObject: {fileID: 2150521936275791522}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc6d5c3f7ae3c9b58988c8d6ef404398, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2150521936275791522}
+      addedObject: {fileID: 2806699832225261844}
   m_SourcePrefab: {fileID: 100100000, guid: dc6d5c3f7ae3c9b58988c8d6ef404398, type: 3}
 --- !u!1 &5844672021177959145 stripped
 GameObject:
@@ -275,8 +275,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1518450341181373720}
-        m_TargetAssemblyTypeName: CuttingBoardPickup, Assembly-CSharp
+      - m_Target: {fileID: 2806699832225261844}
+        m_TargetAssemblyTypeName: ContainerPickup, Assembly-CSharp
         m_MethodName: Grab
         m_Mode: 1
         m_Arguments:
@@ -290,8 +290,8 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1518450341181373720}
-        m_TargetAssemblyTypeName: CuttingBoardPickup, Assembly-CSharp
+      - m_Target: {fileID: 2806699832225261844}
+        m_TargetAssemblyTypeName: ContainerPickup, Assembly-CSharp
         m_MethodName: Ungrab
         m_Mode: 1
         m_Arguments:
@@ -423,18 +423,6 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
---- !u!114 &1518450341181373720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5844672021177959145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aed11b56cbd97bcfa8dc2eab29462ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2150521936275791522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +441,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2806699832225261844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844672021177959145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aed11b56cbd97bcfa8dc2eab29462ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6509850526690728019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc6d5c3f7ae3c9b58988c8d6ef404398, type: 3}
