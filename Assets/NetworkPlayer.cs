@@ -27,8 +27,9 @@ public class NetworkPlayer : MonoBehaviour
             // MapPosition(cook, XRNode.Head);
 
             cam = GameObject.Find("Main Camera");
-            cook.transform.position = new Vector3(cam.transform.position.x, -0.2f, cam.transform.position.z);
-            cook.transform.SetParent(cam.transform);
+            cook.transform.position = new Vector3(cam.transform.position.x, 0f, cam.transform.position.z);
+            cook.transform.rotation = new Quaternion(0f, cam.transform.rotation.y, 0.0f, cam.transform.rotation.w);
+            //cook.transform.SetParent(cam.transform);
 
         }
         
