@@ -9,6 +9,8 @@ public class NetworkPlayer : MonoBehaviour
     public Transform cook;
     private PhotonView photonView;
 
+    public GameObject cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,12 @@ public class NetworkPlayer : MonoBehaviour
         {
             cook.gameObject.SetActive(false);
 
-            MapPosition(cook, XRNode.Head);
+            // MapPosition(cook, XRNode.Head);
+
+            cam = GameObject.Find("Main Camera");
+            cook.transform.position = new Vector3(cam.transform.position.x, -0.2f, cam.transform.position.z);
+            cook.transform.SetParent(cam.transform);
+
         }
         
     }
@@ -31,6 +38,7 @@ public class NetworkPlayer : MonoBehaviour
     {
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation);
+        Debug.Log(position);
         target.position = position;
         target.rotation = rotation;
     }

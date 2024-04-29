@@ -52,7 +52,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1392620047357782820}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -69,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cook: {fileID: 5393555702128447366}
+  cam: {fileID: 0}
 --- !u!1001 &5571932579123914861
 PrefabInstance:
   m_ObjectHideFlags: 0
