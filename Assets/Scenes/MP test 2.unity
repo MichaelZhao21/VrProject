@@ -2964,6 +2964,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2960264305317930938, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: click
+      objectReference: {fileID: 0}
     - target: {fileID: 3079913876204899045, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2621293
@@ -3015,6 +3019,34 @@ PrefabInstance:
     - target: {fileID: 5004282995572017880, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: sceneViewId
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210989621445720407, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100497886830308767, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: click
       objectReference: {fileID: 0}
     - target: {fileID: 6344840058077441015, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_Name
