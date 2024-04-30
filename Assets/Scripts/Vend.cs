@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
 
 public class Vend : MonoBehaviour
 {
@@ -39,8 +40,10 @@ public class Vend : MonoBehaviour
         }
 
         int ind = Array.IndexOf(nameList, item);
-        GameObject clone = Instantiate(ingredients[ind], spawnArea.transform.position, spawnArea.transform.rotation);
+        //GameObject clone = Instantiate(ingredients[ind], spawnArea.transform.position, spawnArea.transform.rotation);
+        GameObject clone = PhotonNetwork.Instantiate(ingredients[ind].name, spawnArea.transform.position, spawnArea.transform.rotation);
         clone.name = item;
+        
         clone.SetActive(true);
 
         GetComponent<StateChange>().Change(item);
