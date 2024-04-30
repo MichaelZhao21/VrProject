@@ -118,7 +118,7 @@ public class Knife : MonoBehaviour
                 sc.gameMaster = currSc.gameMaster;
 
                 // Add ingredient script
-                var ing = obj.AddComponent<Ingredient>();
+                var ing = obj.GetComponent<Ingredient>();
                 var currIng = collision.gameObject.GetComponent<Ingredient>();
                 ing.grabbed = currIng.grabbed;
                 ing.minCutDim = currIng.minCutDim;

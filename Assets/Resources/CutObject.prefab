@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7314873557390978739}
   - component: {fileID: 1375356882117802093}
   - component: {fileID: 5751275979059687879}
+  - component: {fileID: 1676248434656802940}
   m_Layer: 0
   m_Name: CutObject
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5751275979059687879}
+  - {fileID: 1676248434656802940}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -100,3 +102,26 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1676248434656802940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387536416969914060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8eab13add4a113097973b726e8d7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  minCutDim: 0
+  expectedPieces: 5
+  totalCookingTime: 10
+  overcookedTime: 5
+  cookingPercent: 0
+  currentCookingTime: 0
+  cookingState: 0
+  isCooking: 0
+  progressBar: {fileID: 0}
+  innerMaterial: {fileID: 0}
