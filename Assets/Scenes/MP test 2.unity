@@ -2854,6 +2854,26 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091418400338552044, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6344840058077441015, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_Name
       value: Stovetop
