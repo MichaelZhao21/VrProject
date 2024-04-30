@@ -12,6 +12,7 @@ public class Burner : MonoBehaviour
     {
         // Save the default color of the burner
         defaultColor = GetComponent<MeshRenderer>().material.color;
+        
     }
 
     // Update is called once per frame

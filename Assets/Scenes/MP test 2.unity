@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.437291, g: 0.48501456, b: 0.56588924, a: 1}
+  m_IndirectSpecularColor: {r: 0.43729064, g: 0.48501402, b: 0.56588894, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1124,10 +1124,22 @@ MonoBehaviour:
   OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 1046971076}
   - {fileID: 1046971072}
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1046971076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1688680331790601333, guid: 0ee6e422827e5f3789c055446127a159, type: 3}
+  m_PrefabInstance: {fileID: 5312198422390348472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046971062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1092705065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1787346994484839025, guid: ad818c36731146e994540a1896ad8f24, type: 3}
@@ -2786,6 +2798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1270584874}
     m_Modifications:
+    - target: {fileID: 2586550756567115920, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3079913876204899045, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2621293
@@ -2829,6 +2845,10 @@ PrefabInstance:
     - target: {fileID: 4260190957979018352, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: sceneViewId
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260190957979018352, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: OwnershipTransfer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5004282995572017880, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: sceneViewId
@@ -3400,6 +3420,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2742256804550904143, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335487449733878771, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
+      propertyPath: m_UseDynamicAttach
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845757553251003210, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
