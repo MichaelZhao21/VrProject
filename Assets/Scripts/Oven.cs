@@ -21,6 +21,18 @@ public class Oven : MonoBehaviour
         pv = GetComponent<PhotonView>();
     }
 
+    [PunRPC]
+    public void ToggleBakingRPC()
+    {
+        ToggleBaking();
+    }
+
+    public void click()
+    {
+        pv.RPC("ToggleBakingRPC", RpcTarget.AllBuffered);
+    }
+
+
     public void ToggleBaking()
     {
         isBaking = !isBaking;
@@ -28,43 +40,31 @@ public class Oven : MonoBehaviour
         GetComponent<AudioSource>().enabled = isBaking;
     }
 
-    [PunRPC]
-    public void ToggleBakingRPC()
-    {
-        ToggleBaking();
-    }
+    // void Update()
+    // {
+    //     foreach (GameObject food in insideOven)
+    //     {
+    //         if (isBaking)
+    //             food.GetComponent<Ingredient>().ContinueCooking();
+    //         else
+    //             food.GetComponent<Ingredient>().StopCooking();
+    //     }
+    // }
 
+    // public void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("ingredient"))
+    //     {
+    //         insideOven.Add(other.gameObject);
+    //     }
+    // }
 
-    public void click()
-    {
-        pv.RPC("ToggleBakingRPC", RpcTarget.AllBuffered);
-    }
-
-    void Update()
-    {
-        foreach (GameObject food in insideOven)
-        {
-            if (isBaking)
-                food.GetComponent<Ingredient>().ContinueCooking();
-            else
-                food.GetComponent<Ingredient>().StopCooking();
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("ingredient"))
-        {
-            insideOven.Add(other.gameObject);
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ingredient"))
-        {
-            other.GetComponent<Ingredient>().isCooking = false;
-            insideOven.Remove(other.gameObject);
-        }
-    }
+    // public void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("ingredient"))
+    //     {
+    //         other.GetComponent<Ingredient>().isCooking = false;
+    //         insideOven.Remove(other.gameObject);
+    //     }
+    // }
 }
