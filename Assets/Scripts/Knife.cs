@@ -136,7 +136,8 @@ public class Knife : MonoBehaviour
                 audSource.clip = collision.gameObject.GetComponent<AudioSource>().clip;
 
                 // Add grab interactable
-                var xrgi = obj.AddComponent<XRGrabInteractable>();
+                // var xrgi = obj.AddComponent<XRGrabInteractable>();
+                var xrgi = obj.GetComponent<XRGrabNetworkInteractable>();
                 xrgi.useDynamicAttach = true;
                 xrgi.hoverEntered.AddListener((hoverEventArgs) => ing.EnableOutline());
                 xrgi.hoverExited.AddListener((hoverEventArgs) => ing.DisableOutline());
