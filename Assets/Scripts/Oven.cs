@@ -18,7 +18,7 @@ public class Oven : MonoBehaviour
     {
         // Save the default color of the oven
         defaultColor = gameObject.GetComponent<MeshRenderer>().materials[1].color;
-        pv = GetComponent<PhotonView>();
+        pv = gameObject.GetComponent<PhotonView>();
     }
 
     [PunRPC]
