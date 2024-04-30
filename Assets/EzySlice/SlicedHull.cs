@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 namespace EzySlice {
@@ -128,7 +129,8 @@ namespace EzySlice {
                 return null;
             }
 
-            GameObject newObject = new GameObject(name);
+            // GameObject newObject = new GameObject(name);
+            GameObject newObject = PhotonNetwork.Instantiate("CutObject", Vector3.zero, Quaternion.identity);
 
             newObject.AddComponent<MeshRenderer>();
             MeshFilter filter = newObject.AddComponent<MeshFilter>();
