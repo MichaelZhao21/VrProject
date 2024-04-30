@@ -24,7 +24,7 @@ public class Knife : MonoBehaviour
     // Parts adapted from https://github.com/hugoscurti/mesh-cutter/blob/master/Assets/Scripts/MouseSlice.cs
     void OnCollisionEnter(Collision collision)
     {
-        if (slicing || !collision.gameObject.CompareTag("ingredient") || !GetComponent<PhotonView>().IsMine)
+        if (slicing || !collision.gameObject.CompareTag("ingredient") || !grabbing || !GetComponent<PhotonView>().IsMine)
         {
             return;
         }

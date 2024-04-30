@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class ContainerPickup : MonoBehaviour
         {
             Debug.Log("g - " + g.name);
             g.transform.SetParent(transform);
+            g.GetComponent<PhotonView>().RequestOwnership();
         }
         grabbing = true;
     }
