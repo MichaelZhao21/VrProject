@@ -3612,6 +3612,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3e9cbd506ff0a48e8f08a4e783fb7c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3398835983159212730}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3e9cbd506ff0a48e8f08a4e783fb7c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1481051060060175256}
   m_SourcePrefab: {fileID: 100100000, guid: b3e9cbd506ff0a48e8f08a4e783fb7c3, type: 3}
 --- !u!4 &7115033946103985972 stripped
 Transform:
@@ -3673,6 +3676,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: dispense
   gameMaster: {fileID: 0}
+--- !u!65 &1481051060060175256
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635427665007078798}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000003, y: 0.040000007, z: 0.027358744}
+  m_Center: {x: -0.000000007450581, y: 0, z: -0.021320706}
 --- !u!1001 &7802040205759850462
 PrefabInstance:
   m_ObjectHideFlags: 0
