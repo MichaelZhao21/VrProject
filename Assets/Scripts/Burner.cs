@@ -27,8 +27,6 @@ public class Burner : MonoBehaviour
     }
 
     public void click(){
-        // isBurning = !isBurning;
-        // GetComponent<Renderer>().material.color = isBurning ? Color.red : defaultColor;
         pv.RPC("ToggleBurningRPC", RpcTarget.AllBuffered);
     }
 
