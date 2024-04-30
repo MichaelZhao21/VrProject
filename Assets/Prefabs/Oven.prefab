@@ -491,10 +491,10 @@ PrefabInstance:
       addedObject: {fileID: 6565408864520821362}
     - targetCorrespondingSourceObject: {fileID: 5113934892916270570, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1803078075778606014}
+      addedObject: {fileID: 7636465505425362163}
     - targetCorrespondingSourceObject: {fileID: 5113934892916270570, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7636465505425362163}
+      addedObject: {fileID: 2395196223490656355}
   m_SourcePrefab: {fileID: 100100000, guid: 7a17ea07d2f3d7788b3c35711d653a70, type: 3}
 --- !u!1 &1663607312187824263 stripped
 GameObject:
@@ -669,6 +669,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4347966241929339796}
         m_TargetAssemblyTypeName: OvenDoor, Assembly-CSharp
         m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2395196223490656355}
+        m_TargetAssemblyTypeName: Photon.Pun.PhotonView, PhotonUnityNetworking
+        m_MethodName: RequestOwnership
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1133,29 +1145,6 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1803078075778606014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614688053373150048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 7636465505425362163}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &7636465505425362163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,3 +1161,26 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &2395196223490656355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614688053373150048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7636465505425362163}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
