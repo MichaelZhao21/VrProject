@@ -12,7 +12,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         ConnectToServer();
     }
 
-    
     void ConnectToServer()
     {
         PhotonNetwork.ConnectUsingSettings();

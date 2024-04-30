@@ -51,6 +51,10 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Kitchen");
     }
 
+    public void StartMultiplayerSession(){
+        
+    }
+
     public void Exit()
     {
         Application.Quit();
