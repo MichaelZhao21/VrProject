@@ -22,11 +22,6 @@ public class Vend : MonoBehaviour
                 Debug.LogError("The ingredient at index " + i + " is null or undefined!");
                 continue;
             }
-            if (!ingredients[i].CompareTag("ingredient"))
-            {
-                Debug.LogError("The ingredient at index " + i + " (name: " + ingredients[i].name + ") is not an ingredient!");
-                continue;
-            }
             nameList[i] = ingredients[i].name;
             ingredients[i].SetActive(false);
         }

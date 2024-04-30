@@ -40,19 +40,19 @@ namespace EzySlice {
         /**
          * These functions (and overrides) will return the final indtaniated GameObjects types
          */
-        public static GameObject[] SliceInstantiate(this GameObject obj, Plane pl) {
-            return SliceInstantiate(obj, pl, new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f));
+        // public static GameObject[] SliceInstantiate(this GameObject obj, Plane pl) {
+        //     return SliceInstantiate(obj, pl, new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f));
+        // }
+
+        // public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction) {
+        //     return SliceInstantiate(obj, position, direction, null);
+        // }
+
+        public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction, Material crossSectionMat, GameObject upper, GameObject lower) {
+            return SliceInstantiate(obj, position, direction, new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f), crossSectionMat, upper, lower);
         }
 
-        public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction) {
-            return SliceInstantiate(obj, position, direction, null);
-        }
-
-        public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction, Material crossSectionMat) {
-            return SliceInstantiate(obj, position, direction, new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f), crossSectionMat);
-        }
-
-        public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction, TextureRegion cuttingRegion, Material crossSectionMaterial = null) {
+        public static GameObject[] SliceInstantiate(this GameObject obj, Vector3 position, Vector3 direction, TextureRegion cuttingRegion, Material crossSectionMaterial, GameObject upper, GameObject lower) {
             EzySlice.Plane cuttingPlane = new EzySlice.Plane();
 
             Matrix4x4 mat = obj.transform.worldToLocalMatrix;
@@ -64,18 +64,18 @@ namespace EzySlice {
 
             cuttingPlane.Compute(refPt, refUp);
 
-            return SliceInstantiate(obj, cuttingPlane, cuttingRegion, crossSectionMaterial);
+            return SliceInstantiate(obj, cuttingPlane, cuttingRegion, crossSectionMaterial, upper, lower);
         }
 
-        public static GameObject[] SliceInstantiate(this GameObject obj, Plane pl, TextureRegion cuttingRegion, Material crossSectionMaterial = null) {
+        public static GameObject[] SliceInstantiate(this GameObject obj, Plane pl, TextureRegion cuttingRegion, Material crossSectionMaterial, GameObject upper, GameObject lower) {
             SlicedHull slice = Slicer.Slice(obj, pl, cuttingRegion, crossSectionMaterial);
 
             if (slice == null) {
                 return null;
             }
 
-            GameObject upperHull = slice.CreateUpperHull(obj, crossSectionMaterial);
-            GameObject lowerHull = slice.CreateLowerHull(obj, crossSectionMaterial);
+            GameObject upperHull = slice.CreateUpperHull(obj, crossSectionMaterial, upper);
+            GameObject lowerHull = slice.CreateLowerHull(obj, crossSectionMaterial, lower);
 
             if (upperHull != null && lowerHull != null) {
                 return new GameObject[] { upperHull, lowerHull };

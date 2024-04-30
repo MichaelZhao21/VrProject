@@ -147,11 +147,13 @@ public class Ingredient : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
+            stream.SendNext(name);
             // stream.SendNext(innerMaterial);
             stream.SendNext(minCutDim);
         }
         else
         {
+            name = (string) stream.ReceiveNext();
             // innerMaterial = (Material) stream.ReceiveNext();
             minCutDim = (float) stream.ReceiveNext();
         }
