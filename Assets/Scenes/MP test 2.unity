@@ -2826,9 +2826,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4260190957979018352, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004282995572017880, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6344840058077441015, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_Name
       value: Stovetop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919312958166342217, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662769959373552614, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
