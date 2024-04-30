@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class Oven : MonoBehaviour
 {
     private bool isBaking = false;
@@ -10,12 +10,15 @@ public class Oven : MonoBehaviour
 
     private readonly List<GameObject> insideOven = new();
 
+    private PhotonView pv;
+
     
 
     void Start()
     {
         // Save the default color of the oven
         defaultColor = gameObject.GetComponent<MeshRenderer>().materials[1].color;
+        pv = GetComponent<PhotonView>();
     }
 
     public void ToggleBaking()
@@ -23,6 +26,18 @@ public class Oven : MonoBehaviour
         isBaking = !isBaking;
         GetComponent<MeshRenderer>().materials[1].color = isBaking ? Color.yellow : defaultColor;
         GetComponent<AudioSource>().enabled = isBaking;
+    }
+
+    [PunRPC]
+    public void ToggleBakingRPC()
+    {
+        ToggleBaking();
+    }
+
+
+    public void click()
+    {
+        pv.RPC("ToggleBakingRPC", RpcTarget.AllBuffered);
     }
 
     void Update()
