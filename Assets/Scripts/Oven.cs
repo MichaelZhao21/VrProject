@@ -10,6 +10,8 @@ public class Oven : MonoBehaviour
 
     private readonly List<GameObject> insideOven = new();
 
+    
+
     void Start()
     {
         // Save the default color of the oven
