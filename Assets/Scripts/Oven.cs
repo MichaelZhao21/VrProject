@@ -40,31 +40,31 @@ public class Oven : MonoBehaviour
         GetComponent<AudioSource>().enabled = isBaking;
     }
 
-    // void Update()
-    // {
-    //     foreach (GameObject food in insideOven)
-    //     {
-    //         if (isBaking)
-    //             food.GetComponent<Ingredient>().ContinueCooking();
-    //         else
-    //             food.GetComponent<Ingredient>().StopCooking();
-    //     }
-    // }
+    void Update()
+    {
+        foreach (GameObject food in insideOven)
+        {
+            if (isBaking)
+                food.GetComponent<Ingredient>().ContinueCooking();
+            else
+                food.GetComponent<Ingredient>().StopCooking();
+        }
+    }
 
-    // public void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("ingredient"))
-    //     {
-    //         insideOven.Add(other.gameObject);
-    //     }
-    // }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ingredient"))
+        {
+            insideOven.Add(other.gameObject);
+        }
+    }
 
-    // public void OnTriggerExit(Collider other)
-    // {
-    //     if (other.CompareTag("ingredient"))
-    //     {
-    //         other.GetComponent<Ingredient>().isCooking = false;
-    //         insideOven.Remove(other.gameObject);
-    //     }
-    // }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ingredient"))
+        {
+            other.GetComponent<Ingredient>().isCooking = false;
+            insideOven.Remove(other.gameObject);
+        }
+    }
 }
