@@ -3709,14 +3709,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742256804550904143, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335487449733878771, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
-      propertyPath: m_UseDynamicAttach
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4845757553251003210, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

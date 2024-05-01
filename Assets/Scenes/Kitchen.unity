@@ -3400,6 +3400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pan
       objectReference: {fileID: 0}
+    - target: {fileID: 6144630922898117263, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6334278959125350399, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_Mass
       value: 10
