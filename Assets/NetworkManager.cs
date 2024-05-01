@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class RoomType
@@ -19,6 +20,9 @@ public class RoomType
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public List<RoomType> rooms;
+    public GameObject button1;
+    public GameObject button2;
+
 
     public void Start(){
         rooms = new List<RoomType>();
@@ -43,6 +47,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
         Debug.Log("Joined Lobby");
+        button1.SetActive(true);
+        button2.SetActive(true);
     }
 
     public void InitializeRoom(int roomIndex, string name)
@@ -65,6 +71,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        // Print out the room name
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
         Debug.Log("Joined a room.");
         base.OnJoinedRoom();
     }
