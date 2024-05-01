@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e32c08fbb8b1cb4cafb2d4498fec730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cook: {fileID: 0}
+  cook: {fileID: 4656144386592933352}
   cam: {fileID: 0}
 --- !u!1001 &5122646505251955203
 PrefabInstance:
