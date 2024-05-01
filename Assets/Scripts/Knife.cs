@@ -31,7 +31,8 @@ public class Knife : MonoBehaviour
 
         slicing = true;
 
-        onSlice.Invoke(collision.gameObject.name);
+        // Get game object without (Clone) in the middle
+        onSlice.Invoke(collision.gameObject.name.Replace("(Clone)", ""));
 
         StartCoroutine(SliceObject(collision));
     }
