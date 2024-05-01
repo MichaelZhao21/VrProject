@@ -159,6 +159,9 @@ public class Knife : MonoBehaviour
             // Cut remote call
             GetComponent<PhotonView>().RPC("RemoteCut", RpcTarget.Others, origId, contact.point, cutForward, upperId, lowerId);
 
+            // Play sound
+            GetComponent<AudioSource>().Play();
+
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -214,6 +217,8 @@ public class Knife : MonoBehaviour
             ing.isCooking = currIng.isCooking;
             ing.innerMaterial = currIng.innerMaterial;
         }
+
+        GetComponent<AudioSource>().Play();
 
         // Destroy the original object
         Destroy(orig);
