@@ -10,12 +10,14 @@ public class StateChange : MonoBehaviour
 
     public void Change(string value)
     {
+        gameMaster = GameObject.Find("Game Master");
         gameMaster.GetComponent<GameMaster>().ChangeState(stateName, value);
     }
 
     // If need to change more than one thing
     public void Change(string otherName, string value)
     {
+        gameMaster = GameObject.Find("Game Master");
         gameMaster.GetComponent<GameMaster>().ChangeState(otherName, value);
     }
 }

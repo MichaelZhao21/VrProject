@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
 
 public class Vend : MonoBehaviour
 {
@@ -21,11 +22,6 @@ public class Vend : MonoBehaviour
                 Debug.LogError("The ingredient at index " + i + " is null or undefined!");
                 continue;
             }
-            if (!ingredients[i].CompareTag("ingredient"))
-            {
-                Debug.LogError("The ingredient at index " + i + " (name: " + ingredients[i].name + ") is not an ingredient!");
-                continue;
-            }
             nameList[i] = ingredients[i].name;
             ingredients[i].SetActive(false);
         }
@@ -39,8 +35,10 @@ public class Vend : MonoBehaviour
         }
 
         int ind = Array.IndexOf(nameList, item);
-        GameObject clone = Instantiate(ingredients[ind], spawnArea.transform.position, spawnArea.transform.rotation);
+        //GameObject clone = Instantiate(ingredients[ind], spawnArea.transform.position, spawnArea.transform.rotation);
+        GameObject clone = PhotonNetwork.Instantiate(ingredients[ind].name, spawnArea.transform.position, spawnArea.transform.rotation);
         clone.name = item;
+        
         clone.SetActive(true);
 
         GetComponent<StateChange>().Change(item);

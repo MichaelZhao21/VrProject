@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+public class Ingredient : MonoBehaviourPunCallbacks, IPunObservable
 {
     public enum CookingState { RAW, PARTIAL, COOKED, OVERCOOKED }
 
@@ -140,5 +141,21 @@ public class Ingredient : MonoBehaviour
     public void DisableOutline()
     {
         GetComponent<Outline>().enabled = false;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(name);
+            // stream.SendNext(innerMaterial);
+            stream.SendNext(minCutDim);
+        }
+        else
+        {
+            name = (string) stream.ReceiveNext();
+            // innerMaterial = (Material) stream.ReceiveNext();
+            minCutDim = (float) stream.ReceiveNext();
+        }
     }
 }

@@ -48,7 +48,17 @@ public class MainMenuController : MonoBehaviour
     public void StartGame()
     {
         GameMaster.stateFile = recipeList[selected];
-        SceneManager.LoadScene("Kitchen");
+
+        NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
+        network.InitializeRoom(0, SystemInfo.deviceUniqueIdentifier);
+
+    }
+
+    public void StartMultiplayerSession(){
+        GameMaster.stateFile = recipeList[selected];
+
+        NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
+        network.InitializeRoom(1, "Multiplayer");
     }
 
     public void Exit()

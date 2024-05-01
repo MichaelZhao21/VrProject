@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 namespace EzySlice {
@@ -17,12 +18,12 @@ namespace EzySlice {
             this.lower_hull = lowerHull;
         }
 
-        public GameObject CreateUpperHull(GameObject original) {
-            return CreateUpperHull(original, null);
-        }
+        // public GameObject CreateUpperHull(GameObject original) {
+        //     return CreateUpperHull(original, null);
+        // }
 
-        public GameObject CreateUpperHull(GameObject original, Material crossSectionMat) {
-            GameObject newObject = CreateUpperHull();
+        public GameObject CreateUpperHull(GameObject original, Material crossSectionMat, GameObject newObject) {
+            CreateEmptyObject("Upper_Hull", upper_hull, newObject);
 
             if (newObject != null) {
                 newObject.transform.localPosition = original.transform.localPosition;
@@ -36,7 +37,9 @@ namespace EzySlice {
                 // with the submeshes, return as is, no need for any changes
                 if (mesh.subMeshCount == upper_hull.subMeshCount) {
                     // the the material information
-                    newObject.GetComponent<Renderer>().sharedMaterials = shared;
+                    Material[] noOut = new Material[shared.Length-2];
+                    System.Array.Copy(shared, noOut, shared.Length-2);
+                    newObject.GetComponent<Renderer>().sharedMaterials = noOut;
 
                     return newObject;
                 }
@@ -56,12 +59,12 @@ namespace EzySlice {
             return newObject;
         }
 
-        public GameObject CreateLowerHull(GameObject original) {
-            return CreateLowerHull(original, null);
-        }
+        // public GameObject CreateLowerHull(GameObject original) {
+        //     return CreateLowerHull(original, null);
+        // }
 
-        public GameObject CreateLowerHull(GameObject original, Material crossSectionMat) {
-            GameObject newObject = CreateLowerHull();
+        public GameObject CreateLowerHull(GameObject original, Material crossSectionMat, GameObject newObject) {
+            CreateEmptyObject("Lower_Hull", lower_hull, newObject);
 
             if (newObject != null) {
                 newObject.transform.localPosition = original.transform.localPosition;
@@ -75,7 +78,9 @@ namespace EzySlice {
                 // with the submeshes, return as is, no need for any changes
                 if (mesh.subMeshCount == lower_hull.subMeshCount) {
                     // the the material information
-                    newObject.GetComponent<Renderer>().sharedMaterials = shared;
+                    Material[] noOut = new Material[shared.Length-2];
+                    System.Array.Copy(shared, noOut, shared.Length-2);
+                    newObject.GetComponent<Renderer>().sharedMaterials = noOut;
 
                     return newObject;
                 }
@@ -99,17 +104,17 @@ namespace EzySlice {
          * Generate a new GameObject from the upper hull of the mesh
          * This function will return null if upper hull does not exist
          */
-        public GameObject CreateUpperHull() {
-            return CreateEmptyObject("Upper_Hull", upper_hull);
-        }
+        // public GameObject CreateUpperHull() {
+        //     return CreateEmptyObject("Upper_Hull", upper_hull);
+        // }
 
-        /**
-         * Generate a new GameObject from the Lower hull of the mesh
-         * This function will return null if lower hull does not exist
-         */
-        public GameObject CreateLowerHull() {
-            return CreateEmptyObject("Lower_Hull", lower_hull);
-        }
+        // /**
+        //  * Generate a new GameObject from the Lower hull of the mesh
+        //  * This function will return null if lower hull does not exist
+        //  */
+        // public GameObject CreateLowerHull() {
+        //     return CreateEmptyObject("Lower_Hull", lower_hull);
+        // }
 
         public Mesh upperHull {
             get { return this.upper_hull; }
@@ -123,17 +128,18 @@ namespace EzySlice {
          * Helper function which will create a new GameObject to be able to add
          * a new mesh for rendering and return.
          */
-        private static GameObject CreateEmptyObject(string name, Mesh hull) {
+        private static GameObject CreateEmptyObject(string name, Mesh hull, GameObject newObject) {
             if (hull == null) {
                 return null;
             }
 
-            GameObject newObject = new GameObject(name);
+            // GameObject newObject = new GameObject(name);
 
-            newObject.AddComponent<MeshRenderer>();
-            MeshFilter filter = newObject.AddComponent<MeshFilter>();
+            // newObject.AddComponent<MeshRenderer>();
+            MeshFilter filter = newObject.GetComponent<MeshFilter>();
 
             filter.mesh = hull;
+            newObject.GetComponent<MeshCollider>().sharedMesh = hull;
 
             return newObject;
         }

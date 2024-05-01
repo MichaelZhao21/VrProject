@@ -5,6 +5,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class SubmitDish : MonoBehaviour
 {
@@ -45,11 +46,11 @@ public class SubmitDish : MonoBehaviour
             return;
         }
 
-        // Has not reached last state
-        if (!gameMaster.GetComponent<GameMaster>().IsGameOver()) {
-            textDisplay.GetComponent<Text>().text = "You have not completed all steps!";
-            return;
-        }
+        // // Has not reached last state
+        // if (!gameMaster.GetComponent<GameMaster>().IsGameOver()) {
+        //     textDisplay.GetComponent<Text>().text = "You have not completed all steps!";
+        //     return;
+        // }
 
         // CalcPlatingScore(plate);
         CalcCuttingScore(plate);
@@ -59,12 +60,16 @@ public class SubmitDish : MonoBehaviour
         submit.transform.position = transform.position;
         foreach (GameObject g in inBox)
         {
-            g.transform.SetParent(submit.transform);
+            var newObj = Instantiate(g);
+            newObj.transform.SetParent(submit.transform);
+            PhotonNetwork.Destroy(g);
         }
 
         GameMaster.finalPlating = submit;
         DontDestroyOnLoad(submit);
 
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
         SceneManager.LoadScene("End");
     }
 

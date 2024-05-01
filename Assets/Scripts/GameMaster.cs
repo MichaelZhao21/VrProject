@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Photon.Pun;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameMaster : MonoBehaviour
+public class GameMaster : MonoBehaviourPunCallbacks
 {
     public class StateItem
     {
@@ -36,8 +37,14 @@ public class GameMaster : MonoBehaviour
 
     public static GameObject finalPlating;
 
-    public void Start()
+    public override void OnJoinedRoom()
     {
+        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("stateFile"))
+        {
+            stateFile = (string)PhotonNetwork.CurrentRoom.CustomProperties["stateFile"];
+            Debug.Log("Recipe: " + stateFile);
+        }
+
         // Read text from files
         TextAsset data = Resources.Load(stateFile) as TextAsset;
         if (data == null)

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 86e5250b787659851a24a4da674f2d30, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2241,6 +2241,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5045616909530886458, guid: 3d087769a7e20fd3d806924f702c2627, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5762143509645352107, guid: 3d087769a7e20fd3d806924f702c2627, type: 3}
       propertyPath: m_Name
       value: Cutting Board
@@ -2789,6 +2793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1270584874}
     m_Modifications:
+    - target: {fileID: 2586550756567115920, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3079913876204899045, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2621293
@@ -2829,9 +2837,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4260190957979018352, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004282995572017880, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6344840058077441015, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
       propertyPath: m_Name
       value: Stovetop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919312958166342217, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662769959373552614, guid: 5eedf6821e6f4e218a6fb99d4fcf72b5, type: 3}
+      propertyPath: sceneViewId
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -3073,6 +3097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 384157222}
     m_Modifications:
+    - target: {fileID: -4472780138620719491, guid: 3c2976c114d26db9f9df12e908fc60fa, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 558884072932729404, guid: 3c2976c114d26db9f9df12e908fc60fa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3227,6 +3255,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 687480331907971706, guid: 0ee6e422827e5f3789c055446127a159, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1401930795904403769, guid: 0ee6e422827e5f3789c055446127a159, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.961
@@ -3304,6 +3336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1270584874}
     m_Modifications:
+    - target: {fileID: 253869752932425917, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 648981188785735883, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.362129
@@ -3363,6 +3399,10 @@ PrefabInstance:
     - target: {fileID: 6033103070643298043, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_Name
       value: Pan
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144630922898117263, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6334278959125350399, guid: 65ee11130b96ed839bd348bbbf42353b, type: 3}
       propertyPath: m_Mass
@@ -3432,6 +3472,22 @@ PrefabInstance:
     - target: {fileID: 334110774767356951, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672746065458834047, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165162785543501169, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395196223490656355, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390551299964814637, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
+      propertyPath: sceneViewId
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7857416718302412491, guid: dffd942c5a4fa8210a81713911956c47, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -3520,6 +3576,10 @@ PrefabInstance:
     - target: {fileID: 6249337178653184030, guid: 4fb49c313ebe7f1cb9adfb560e1b924b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526295243287598604, guid: 4fb49c313ebe7f1cb9adfb560e1b924b, type: 3}
+      propertyPath: sceneViewId
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
