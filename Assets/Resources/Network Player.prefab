@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cook
       objectReference: {fileID: 0}
+    - target: {fileID: 8699652204047898494, guid: 8ca84c4c091e1574a86f952e96deece9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -381,4 +385,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ca84c4c091e1574a86f952e96deece9, type: 3}
   m_PrefabInstance: {fileID: 5571932579123914861}
   m_PrefabAsset: {fileID: 0}
-
