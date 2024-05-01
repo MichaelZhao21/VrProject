@@ -27,7 +27,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void Start(){
         rooms = new List<RoomType>();
         rooms.Add(new RoomType(1, 1));
-        rooms.Add(new RoomType(1, 2));
+        rooms.Add(new RoomType(1, 5));
     }
 
     public void ConnectToServer()
