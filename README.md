@@ -16,9 +16,6 @@ Asset name (folder in Assets) - description
 - [Food Props](https://assetstore.unity.com/packages/3d/food-props-163295) (AddOns/Mg3D\_Food) - Simple food objects, from official Unity Assets
 - [Simple Foods](https://assetstore.unity.com/packages/3d/props/food/simple-foods-207032) (AddOns/Simple Foods) - More food models that includes both cooked and uncooked versions of the foods, from official Unity Assets
 - [HQ Kitchen Rusty Knife](https://assetstore.unity.com/packages/3d/props/weapons/hq-kitchen-rusty-knife-83994) (CustomShapes/blender/knife.blend) - Used as a base model for the knife, applied custom materials
-- [Frying in a pan](https://pixabay.com/sound-effects/frying-in-a-pan-6017/) (Sounds/frying.wav) - Frying pan sound effect
-- [Switch sound effect](https://pixabay.com/sound-effects/switch-150130/) (Sounds/switch.wav) - Switch sound effect
-- [Oven fan sound](https://pixabay.com/sound-effects/oven-fan-kitchen-appliance-23690/) (Sounds/oven.wav) - Sound effect for oven being on
 - [NoirMat Marble Pack Vol 1](https://assetstore.unity.com/packages/2d/textures-materials/noirmat-marble-pack-vol-01-128318) (NoirMarblePack01) - Texture for walls
 - [PBR Tile Texture Floor](https://assetstore.unity.com/packages/2d/textures-materials/tiles/pbr-tile-texture-floor-36243) (pbr\_textures) - Texture for floor
 
@@ -27,6 +24,13 @@ Asset name (folder in Assets) - description
 - [Watermelon](https://www.cleanpng.com/png-watermelon-public-domain-clip-art-watermelon-637314/)
 - [Steak](https://banner2.cleanpng.com/20180214/qre/kisspng-steak-meat-beef-clip-art-rotten-meat-cliparts-5a849917080df2.325551841518639383033.jpg)
 - [Chicken](https://cdn2.iconfinder.com/data/icons/meat-28/500/vab882_19_chicken_meat_isometric_cartoon_retro_food_vintage-512.png)
+
+### Sound Effect Assets
+- [Pop](https://pixabay.com/sound-effects/happy-pop-3-185288/)
+- [Frying in a pan](https://pixabay.com/sound-effects/frying-in-a-pan-6017/)
+- [Switch sound effect](https://pixabay.com/sound-effects/switch-150130/)
+- [Oven fan sound](https://pixabay.com/sound-effects/oven-fan-kitchen-appliance-23690/)
+- [Cutting](https://pixabay.com/sound-effects/knife-and-cutting-board-foley-3-184692/)
 
 # Blender Overview
 
