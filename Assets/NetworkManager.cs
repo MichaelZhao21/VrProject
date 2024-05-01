@@ -7,12 +7,10 @@ using Photon.Realtime;
 [System.Serializable]
 public class RoomType
 {
-    public string name;
     public int sceneIndex;
     public int maxPlayer;
 
-    public RoomType(string name, int index, int maxPlayer){
-        this.name = name;
+    public RoomType(int index, int maxPlayer){
         this.sceneIndex = index;
         this.maxPlayer = maxPlayer;
     }
@@ -24,8 +22,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void Start(){
         rooms = new List<RoomType>();
-        rooms.Add(new RoomType("Singleplayer", 1, 1));
-        rooms.Add(new RoomType("Multiplayer", 1, 2));
+        rooms.Add(new RoomType(1, 1));
+        rooms.Add(new RoomType(1, 2));
     }
 
     public void ConnectToServer()
@@ -47,7 +45,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Joined Lobby");
     }
 
-    public void InitializeRoom(int roomIndex)
+    public void InitializeRoom(int roomIndex, string name)
     {
         RoomType settings = rooms[roomIndex];
 
@@ -61,7 +59,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.JoinOrCreateRoom(settings.name, roomOptions, TypedLobby.Default );
+        PhotonNetwork.JoinOrCreateRoom(name, roomOptions, TypedLobby.Default );
         Debug.Log("Join/Create Room");
     }
 

@@ -50,7 +50,7 @@ public class MainMenuController : MonoBehaviour
         GameMaster.stateFile = recipeList[selected];
 
         NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
-        network.InitializeRoom(0);
+        network.InitializeRoom(0, SystemInfo.deviceUniqueIdentifier);
 
     }
 
@@ -58,7 +58,7 @@ public class MainMenuController : MonoBehaviour
         GameMaster.stateFile = recipeList[selected];
 
         NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
-        network.InitializeRoom(1);
+        network.InitializeRoom(1, "Multiplayer");
     }
 
     public void Exit()
