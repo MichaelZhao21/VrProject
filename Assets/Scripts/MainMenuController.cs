@@ -48,11 +48,9 @@ public class MainMenuController : MonoBehaviour
     public void StartGame()
     {
         GameMaster.stateFile = recipeList[selected];
-        SceneManager.LoadScene("MP test 2");
-        
-        // NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
-        // // network.ConnectToServer();
-        // network.InitializeRoom(0);
+
+        NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
+        network.InitializeRoom(0);
 
     }
 
@@ -60,7 +58,6 @@ public class MainMenuController : MonoBehaviour
         GameMaster.stateFile = recipeList[selected];
 
         NetworkManager network = GameObject.Find("Network Manager").GetComponent<NetworkManager>();
-        // network.ConnectToServer();
         network.InitializeRoom(1);
     }
 
