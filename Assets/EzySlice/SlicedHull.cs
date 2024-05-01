@@ -37,7 +37,9 @@ namespace EzySlice {
                 // with the submeshes, return as is, no need for any changes
                 if (mesh.subMeshCount == upper_hull.subMeshCount) {
                     // the the material information
-                    newObject.GetComponent<Renderer>().sharedMaterials = shared;
+                    Material[] noOut = new Material[shared.Length-2];
+                    System.Array.Copy(shared, noOut, shared.Length-2);
+                    newObject.GetComponent<Renderer>().sharedMaterials = noOut;
 
                     return newObject;
                 }
@@ -76,7 +78,9 @@ namespace EzySlice {
                 // with the submeshes, return as is, no need for any changes
                 if (mesh.subMeshCount == lower_hull.subMeshCount) {
                     // the the material information
-                    newObject.GetComponent<Renderer>().sharedMaterials = shared;
+                    Material[] noOut = new Material[shared.Length-2];
+                    System.Array.Copy(shared, noOut, shared.Length-2);
+                    newObject.GetComponent<Renderer>().sharedMaterials = noOut;
 
                     return newObject;
                 }
