@@ -60,12 +60,13 @@ public class SubmitDish : MonoBehaviour
         submit.transform.position = transform.position;
         foreach (GameObject g in inBox)
         {
-            g.transform.SetParent(submit.transform);
+            var newObj = Instantiate(g);
+            newObj.transform.SetParent(submit.transform);
+            PhotonNetwork.Destroy(g);
         }
 
         GameMaster.finalPlating = submit;
         DontDestroyOnLoad(submit);
-
 
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();

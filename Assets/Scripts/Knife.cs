@@ -14,7 +14,7 @@ public class Knife : MonoBehaviour
 {
     bool slicing = false;
     bool grabbing = false;
-    List<GameObject> hoveredObjects = new();
+    HashSet<GameObject> hoveredObjects = new();
     public float separation = 0.1f;
 
     [SerializeField]
@@ -227,7 +227,7 @@ public class Knife : MonoBehaviour
         }
 
         Collider[] colliders = Physics.OverlapCapsule(transform.position + transform.up * 0.5f, transform.position - transform.up * 0.5f, 0.1f);
-        List<GameObject> newHoveredObjects = new();
+        HashSet<GameObject> newHoveredObjects = new();
 
         // Enable outlines for all hovered objects
         foreach (Collider collider in colliders)
@@ -240,6 +240,7 @@ public class Knife : MonoBehaviour
         }
 
         // Disable all outlines that are not hovered anymore
+        RemoveNulls();
         foreach (GameObject hoveredObject in hoveredObjects)
         {
             if (!newHoveredObjects.Contains(hoveredObject))
@@ -250,6 +251,12 @@ public class Knife : MonoBehaviour
 
         hoveredObjects = newHoveredObjects;
     }
+
+    private void RemoveNulls()
+    {
+        hoveredObjects.RemoveWhere(g => g == null);
+    }
+
 
     // Need to assign this to the Select Entered event of the Grabbable script
     public void OnGrab()
