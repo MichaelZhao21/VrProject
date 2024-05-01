@@ -5,6 +5,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class SubmitDish : MonoBehaviour
 {
@@ -65,6 +66,8 @@ public class SubmitDish : MonoBehaviour
         GameMaster.finalPlating = submit;
         DontDestroyOnLoad(submit);
 
+
+        PhotonNetwork.Disconnect();
         SceneManager.LoadScene("End");
     }
 
