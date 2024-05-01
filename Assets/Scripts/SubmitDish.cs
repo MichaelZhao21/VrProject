@@ -67,6 +67,7 @@ public class SubmitDish : MonoBehaviour
         DontDestroyOnLoad(submit);
 
 
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
         SceneManager.LoadScene("End");
     }
