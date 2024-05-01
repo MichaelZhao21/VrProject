@@ -20,8 +20,8 @@ public class EndScreen : MonoBehaviour
 
         Destroy(GameMaster.finalPlating);
 
-        float finalScore = GameMaster.CalculateAverageScore();
-        scoreText.GetComponent<Text>().text = string.Format("Your Score: {0:F2}%", finalScore * 100);
+        // float finalScore = GameMaster.CalculateAverageScore();
+        // scoreText.GetComponent<Text>().text = string.Format("Your Score: {0:F2}%", finalScore * 100);
     }
 
     public void ReturnToMenu()

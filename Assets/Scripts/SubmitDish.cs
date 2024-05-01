@@ -47,10 +47,10 @@ public class SubmitDish : MonoBehaviour
         }
 
         // // Has not reached last state
-        // if (!gameMaster.GetComponent<GameMaster>().IsGameOver()) {
-        //     textDisplay.GetComponent<Text>().text = "You have not completed all steps!";
-        //     return;
-        // }
+        if (!gameMaster.GetComponent<GameMaster>().IsGameOver()) {
+            textDisplay.GetComponent<Text>().text = "You have not completed all steps!";
+            return;
+        }
 
         // CalcPlatingScore(plate);
         CalcCuttingScore(plate);
