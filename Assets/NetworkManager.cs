@@ -60,10 +60,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(settings.sceneIndex);
 
         // CREATE ROOM
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = (byte)settings.maxPlayer;
-        roomOptions.IsVisible = true;
-        roomOptions.IsOpen = true;
+        RoomOptions roomOptions = new RoomOptions
+        {
+            MaxPlayers = (byte)settings.maxPlayer,
+            IsVisible = true,
+            IsOpen = true,
+            CustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        };
+        roomOptions.CustomRoomProperties["stateFile"] = GameMaster.stateFile;
 
         PhotonNetwork.JoinOrCreateRoom(name, roomOptions, TypedLobby.Default );
         Debug.Log("Join/Create Room");
@@ -72,8 +76,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         // Print out the room name
-        Debug.Log(PhotonNetwork.CurrentRoom.Name);
-        Debug.Log("Joined a room.");
+        Debug.Log("Joined a room: " + PhotonNetwork.CurrentRoom.Name);
         base.OnJoinedRoom();
     }
 

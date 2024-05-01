@@ -26,12 +26,8 @@ public class Knife : MonoBehaviour
     {
         if (slicing || !collision.gameObject.CompareTag("ingredient") || !grabbing || !GetComponent<PhotonView>().IsMine)
         {
-            Debug.Log("WBHJWFFWGEUFUWEGFYUWGFYUWEIUFHWIUFHWERFUGYWRFUYW");
-            Debug.Log(grabbing);
             return;
         }
-
-        Debug.Log("AHHHHHHHHHHHHHHHHHHHH");
 
         slicing = true;
 
